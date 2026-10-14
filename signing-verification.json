@@ -1,0 +1,69 @@
+{
+  "verified_on": "2026-10-14",
+  "xcode": "26.6 (17F113)",
+  "embedded_signatures_verified": true,
+  "targets": [
+    {
+      "product": "DeadlineTheo.app",
+      "bundle_id": "com.example.ddl.prototype01",
+      "profile_family_controls": true,
+      "signed_family_controls": true,
+      "team_matches": true,
+      "profile_app_id_matches": true,
+      "signed_app_id_matches": true,
+      "test_device_in_profile": true,
+      "development_debug_allowed": true,
+      "profile_not_expired": true,
+      "profile_expiration_utc": "2027-10-14T12:32:23+00:00",
+      "signature_verified": true
+    },
+    {
+      "product": "TheoActivityMonitor.appex",
+      "bundle_id": "com.example.ddl.prototype01.TheoActivityMonitor",
+      "profile_family_controls": true,
+      "signed_family_controls": true,
+      "team_matches": true,
+      "profile_app_id_matches": true,
+      "signed_app_id_matches": true,
+      "test_device_in_profile": true,
+      "development_debug_allowed": true,
+      "profile_not_expired": true,
+      "profile_expiration_utc": "2027-10-14T12:32:20+00:00",
+      "signature_verified": true
+    },
+    {
+      "product": "TheoShieldAction.appex",
+      "bundle_id": "com.example.ddl.prototype01.TheoShieldAction",
+      "profile_family_controls": true,
+      "signed_family_controls": true,
+      "team_matches": true,
+      "profile_app_id_matches": true,
+      "signed_app_id_matches": true,
+      "test_device_in_profile": true,
+      "development_debug_allowed": true,
+      "profile_not_expired": true,
+      "profile_expiration_utc": "2027-10-14T12:32:13+00:00",
+      "signature_verified": true
+    },
+    {
+      "product": "TheoShieldConfiguration.appex",
+      "bundle_id": "com.example.ddl.prototype01.TheoShieldConfiguration",
+      "profile_family_controls": true,
+      "signed_family_controls": true,
+      "team_matches": true,
+      "profile_app_id_matches": true,
+      "signed_app_id_matches": true,
+      "test_device_in_profile": true,
+      "development_debug_allowed": true,
+      "profile_not_expired": true,
+      "profile_expiration_utc": "2027-10-14T12:32:16+00:00",
+      "signature_verified": true
+    }
+  ],
+  "developer_disk_image_usable": true,
+  "device_installation_succeeded": true,
+  "device_launch_succeeded": true,
+  "app_process_confirmed_running": true,
+  "screen_time_authorization_tested": false,
+  "shield_session_loop_tested": false
+}
