@@ -1,0 +1,116 @@
+{
+  "checked_on": "2026-10-14",
+  "signing_baseline_commit": "a9f9a89",
+  "signing_baseline_tag": "prototype-0.1-signing-verified",
+  "timing_checks_passed": true,
+  "signed_build_passed": true,
+  "targets": [
+    {
+      "target": "DeadlineTheo.app",
+      "family_controls_profile": true,
+      "family_controls_signed": true,
+      "app_group_profile": true,
+      "app_group_signed": true,
+      "team_matches": true,
+      "app_id_matches": true,
+      "device_covered": true
+    },
+    {
+      "target": "TheoActivityMonitor.appex",
+      "family_controls_profile": true,
+      "family_controls_signed": true,
+      "app_group_profile": true,
+      "app_group_signed": true,
+      "team_matches": true,
+      "app_id_matches": true,
+      "device_covered": true
+    },
+    {
+      "target": "TheoShieldAction.appex",
+      "family_controls_profile": true,
+      "family_controls_signed": true,
+      "app_group_profile": true,
+      "app_group_signed": true,
+      "team_matches": true,
+      "app_id_matches": true,
+      "device_covered": true
+    },
+    {
+      "target": "TheoShieldConfiguration.appex",
+      "family_controls_profile": true,
+      "family_controls_signed": true,
+      "app_group_profile": true,
+      "app_group_signed": true,
+      "team_matches": true,
+      "app_id_matches": true,
+      "device_covered": true
+    }
+  ],
+  "runtime_app_group_app_access_verified": true,
+  "runtime_monitor_shared_access_verified": true,
+  "individual_authorization_verified": true,
+  "shield_verified": true,
+  "monitor_expiry_cleanup_verified": true,
+  "functional_build_installed": true,
+  "functional_build_launched": true,
+  "functional_app_process_running": true,
+  "user_authorization_checkpoint_pending": false,
+  "selected_app_count_user_reported": 2,
+  "authorization_checkpoint_evidence": "Owner confirmed successful individual authorization and two apps selected on 2026-10-14. IMG_9271.PNG shows App Group ready and a Monitor-written shared-session event containing the same session and two apps, verifying cross-process shared access.",
+  "natural_expiry_restoration_user_reported": true,
+  "force_quit_persistence_verified": true,
+  "shield_action_keeps_restriction_verified": true,
+  "unselected_app_access_verified": true,
+  "debug_reset_verified": true,
+  "first_session_evidence": {
+    "date": "2026-10-14",
+    "task": "IELTS Listening",
+    "duration_minutes": 15,
+    "displayed_end_time": "21:43 Asia/Shanghai",
+    "screenshots": [
+      "IMG_9268.PNG",
+      "IMG_9269.PNG",
+      "IMG_9270.PNG",
+      "IMG_9271.PNG"
+    ],
+    "observed": "Custom shield matches all three requested text lines; two selected apps show restriction indicators; host displays an active session and a Monitor shared-state event at 21:28:02.",
+    "owner_report": "nice成功 结束自己消失了",
+    "remaining_uncertainty": "The first session cleanup source remains undetermined. The subsequent force-quit acceptance test independently verifies Monitor expiry cleanup; see force_quit_acceptance_evidence."
+  },
+  "expiry_followup_evidence": {
+    "screenshot": "IMG_9272.PNG",
+    "displayed_time": "21:47",
+    "active_session_visible": false,
+    "latest_monitor_event": "Shared session start, 21:28:02; no Monitor completion event visible",
+    "host_force_quit": false,
+    "host_opened_before_expiry": true,
+    "cleanup_source": "unverified; foreground reconciliation can also clear expired restrictions"
+  },
+  "reset_acceptance_evidence": {
+    "date": "2026-10-14",
+    "basis": "Owner report",
+    "configured_duration_minutes": 25,
+    "selected_app_count": 1,
+    "shield_appeared": true,
+    "unselected_apps_accessible": true,
+    "reset_immediately_restored_access": true,
+    "waited_for_natural_expiry": false
+  },
+  "prototype_0_1_core_loop_acceptance_passed": true,
+  "core_loop_milestone_tag": "prototype-0.1-core-loop-verified",
+  "force_quit_acceptance_evidence": {
+    "date": "2026-10-14",
+    "basis": "Owner confirms following all four prescribed test steps without issues; supplied completion screenshot",
+    "configured_duration_minutes": 15,
+    "shield_button_kept_restriction": true,
+    "shield_persisted_after_host_force_quit": true,
+    "host_kept_closed_until_after_expiry": true,
+    "selected_app_access_restored_before_host_reopened": true,
+    "screenshot": "IMG_9274.PNG",
+    "screenshot_displayed_time": "22:11 Asia/Shanghai",
+    "monitor_event": "到期自动清理完成",
+    "monitor_event_time": "22:10:22 Asia/Shanghai",
+    "active_session_visible": false,
+    "app_group_ready": true
+  }
+}

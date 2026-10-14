@@ -1,226 +1,68 @@
 // !$*UTF8*$!
 {
-	"archiveVersion" = 1;
 	"classes" = {
 	};
-	"objectVersion" = 56;
+	"objectVersion" = "56";
+	"archiveVersion" = "1";
 	"objects" = {
-		"482756238FB99AD5C82540CA" = {
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"path" = "Shared/PrototypeConfiguration.swift";
-			"sourceTree" = "<group>";
-		};
-		"5E5BED79FE27C690A2E6FD41" = {
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"path" = "DeadlineTheoApp.swift";
-			"sourceTree" = "<group>";
-		};
-		"643DEC775D5481C208EAF475" = {
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "text.plist.entitlements";
-			"path" = "DeadlineTheo.entitlements";
-			"sourceTree" = "<group>";
-		};
-		"E29EA9720F1F90E5D3182AF9" = {
-			"isa" = "PBXGroup";
-			"children" = ("5E5BED79FE27C690A2E6FD41", "643DEC775D5481C208EAF475");
-			"path" = "DeadlineTheo";
-			"sourceTree" = "<group>";
-		};
-		"6CC309B63126E929A596CB91" = {
-			"isa" = "PBXFileReference";
-			"explicitFileType" = "wrapper.application";
-			"includeInIndex" = 0;
-			"path" = "DeadlineTheo.app";
-			"sourceTree" = "BUILT_PRODUCTS_DIR";
-		};
-		"47480F3B7B104AF62A2CFB06" = {
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"path" = "DeviceActivityMonitorExtension.swift";
-			"sourceTree" = "<group>";
-		};
-		"693AF5822BE8ED0DA699F680" = {
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "text.plist.entitlements";
-			"path" = "TheoActivityMonitor.entitlements";
-			"sourceTree" = "<group>";
-		};
-		"93A6A41E751971C3B4DEC27E" = {
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "text.plist.xml";
-			"path" = "Info.plist";
-			"sourceTree" = "<group>";
-		};
-		"0AAC4AE8382F70F403DE3E2D" = {
-			"isa" = "PBXGroup";
-			"children" = ("47480F3B7B104AF62A2CFB06", "693AF5822BE8ED0DA699F680", "93A6A41E751971C3B4DEC27E");
-			"path" = "TheoActivityMonitor";
-			"sourceTree" = "<group>";
-		};
-		"6FC3270628E675C2C00392B6" = {
-			"isa" = "PBXFileReference";
-			"explicitFileType" = "wrapper.app-extension";
-			"includeInIndex" = 0;
-			"path" = "TheoActivityMonitor.appex";
-			"sourceTree" = "BUILT_PRODUCTS_DIR";
-		};
-		"DF6A0F91CBD3DBCB17D7F000" = {
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"path" = "ShieldConfigurationExtension.swift";
-			"sourceTree" = "<group>";
-		};
-		"FB03D7E186E87752C93DCC84" = {
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "text.plist.entitlements";
-			"path" = "TheoShieldConfiguration.entitlements";
-			"sourceTree" = "<group>";
-		};
-		"F948D4D7E4CAA08CA6102EFF" = {
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "text.plist.xml";
-			"path" = "Info.plist";
-			"sourceTree" = "<group>";
-		};
-		"20103741EF4BACC5F0100230" = {
-			"isa" = "PBXGroup";
-			"children" = ("DF6A0F91CBD3DBCB17D7F000", "FB03D7E186E87752C93DCC84", "F948D4D7E4CAA08CA6102EFF");
-			"path" = "TheoShieldConfiguration";
-			"sourceTree" = "<group>";
-		};
-		"07F44D28A10D9B762C5B8324" = {
-			"isa" = "PBXFileReference";
-			"explicitFileType" = "wrapper.app-extension";
-			"includeInIndex" = 0;
-			"path" = "TheoShieldConfiguration.appex";
-			"sourceTree" = "BUILT_PRODUCTS_DIR";
-		};
-		"3AAC3E4B9F89E8AC17E07C54" = {
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"path" = "ShieldActionExtension.swift";
-			"sourceTree" = "<group>";
-		};
-		"50A9FAA061445949DAA93AB5" = {
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "text.plist.entitlements";
-			"path" = "TheoShieldAction.entitlements";
-			"sourceTree" = "<group>";
-		};
-		"5601377392F2E70B78FC0822" = {
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "text.plist.xml";
-			"path" = "Info.plist";
-			"sourceTree" = "<group>";
-		};
-		"E847AFF228C4F2C453DD11A3" = {
-			"isa" = "PBXGroup";
-			"children" = ("3AAC3E4B9F89E8AC17E07C54", "50A9FAA061445949DAA93AB5", "5601377392F2E70B78FC0822");
-			"path" = "TheoShieldAction";
-			"sourceTree" = "<group>";
-		};
-		"AC5E24043582C47EBDEB4FD3" = {
-			"isa" = "PBXFileReference";
-			"explicitFileType" = "wrapper.app-extension";
-			"includeInIndex" = 0;
-			"path" = "TheoShieldAction.appex";
-			"sourceTree" = "BUILT_PRODUCTS_DIR";
-		};
-		"0A3E27B8CA818264D75C8D81" = {
-			"isa" = "PBXGroup";
-			"children" = ("6CC309B63126E929A596CB91", "6FC3270628E675C2C00392B6", "07F44D28A10D9B762C5B8324", "AC5E24043582C47EBDEB4FD3");
-			"name" = "Products";
-			"sourceTree" = "<group>";
-		};
-		"F2389253433CBEC1BC790F1C" = {
-			"isa" = "PBXGroup";
-			"children" = ("482756238FB99AD5C82540CA");
-			"name" = "Shared";
-			"sourceTree" = "<group>";
-		};
-		"66474652908ED2E0775E04A9" = {
-			"isa" = "PBXGroup";
-			"children" = ("E29EA9720F1F90E5D3182AF9", "0AAC4AE8382F70F403DE3E2D", "20103741EF4BACC5F0100230", "E847AFF228C4F2C453DD11A3", "F2389253433CBEC1BC790F1C", "0A3E27B8CA818264D75C8D81");
-			"sourceTree" = "<group>";
-		};
-		"321B2076F11A34F2F7735A6E" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "5E5BED79FE27C690A2E6FD41";
-		};
-		"947411804ABBA0EFD880E187" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "482756238FB99AD5C82540CA";
-		};
-		"FAD9F9492105FA405688ED9A" = {
-			"isa" = "PBXSourcesBuildPhase";
-			"buildActionMask" = 2147483647;
-			"files" = ("321B2076F11A34F2F7735A6E", "947411804ABBA0EFD880E187");
-			"runOnlyForDeploymentPostprocessing" = 0;
-		};
 		"A955D73283B9643D838EC6F7" = {
 			"isa" = "PBXFrameworksBuildPhase";
-			"buildActionMask" = 2147483647;
+			"buildActionMask" = "2147483647";
 			"files" = ();
-			"runOnlyForDeploymentPostprocessing" = 0;
+			"runOnlyForDeploymentPostprocessing" = "0";
 		};
 		"F55BF6EB804AE63B9C38BFBD" = {
 			"isa" = "PBXResourcesBuildPhase";
-			"buildActionMask" = 2147483647;
+			"buildActionMask" = "2147483647";
 			"files" = ();
-			"runOnlyForDeploymentPostprocessing" = 0;
+			"runOnlyForDeploymentPostprocessing" = "0";
 		};
-		"39F67D0408DBFE008A6A6CDB" = {
-			"isa" = "PBXContainerItemProxy";
-			"containerPortal" = "244210E48437B6556980A702";
-			"proxyType" = 1;
-			"remoteGlobalIDString" = "3C5038DEF8428BFB385426CA";
-			"remoteInfo" = "TheoActivityMonitor";
+		"E599CFC7A0E4A45A89E2C660" = {
+			"buildConfigurationList" = "A2BBE6F46A4C5BE6CD597A44";
+			"productReference" = "6CC309B63126E929A596CB91";
+			"productType" = "com.apple.product-type.application";
+			"productName" = "DeadlineTheo";
+			"isa" = "PBXNativeTarget";
+			"buildPhases" = ("FAD9F9492105FA405688ED9A", "A955D73283B9643D838EC6F7", "F55BF6EB804AE63B9C38BFBD", "DD615B768CF8ACFE2ED53E52");
+			"dependencies" = ("CEEB78990E1B20926B8840C2", "D81CC7D7629317EC10B7D319", "5540EF5AD8643ED359D81BAF");
+			"name" = "DeadlineTheo";
+			"buildRules" = ();
 		};
-		"CEEB78990E1B20926B8840C2" = {
-			"isa" = "PBXTargetDependency";
-			"target" = "3C5038DEF8428BFB385426CA";
-			"targetProxy" = "39F67D0408DBFE008A6A6CDB";
-		};
-		"7E7AE76C1966EACD01F32062" = {
+		"36CEDB08837F26ECBA174135" = {
 			"isa" = "PBXBuildFile";
-			"fileRef" = "6FC3270628E675C2C00392B6";
-			"settings" = {
-				"ATTRIBUTES" = ("RemoveHeadersOnCopy");
+			"fileRef" = "482756238FB99AD5C82540CA";
+		};
+		"5E5BED79FE27C690A2E6FD41" = {
+			"path" = "DeadlineTheoApp.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"B26E841B5935421AD7FFE30D" = {
+			"isa" = "XCBuildConfiguration";
+			"name" = "Debug";
+			"buildSettings" = {
+				"PRODUCT_NAME" = "$(TARGET_NAME)";
+				"APPLICATION_EXTENSION_API_ONLY" = "YES";
+				"DEVELOPMENT_TEAM" = "";
+				"LD_RUNPATH_SEARCH_PATHS" = ("$(inherited)", "@executable_path/Frameworks", "@executable_path/../../Frameworks");
+				"TARGETED_DEVICE_FAMILY" = "1,2";
+				"MARKETING_VERSION" = "0.1";
+				"INFOPLIST_FILE" = "TheoActivityMonitor/Info.plist";
+				"CODE_SIGN_IDENTITY" = "Apple Development";
+				"SKIP_INSTALL" = "YES";
+				"ENABLE_USER_SCRIPT_SANDBOXING" = "YES";
+				"SWIFT_OPTIMIZATION_LEVEL" = "-Onone";
+				"SUPPORTED_PLATFORMS" = "iphoneos iphonesimulator";
+				"CODE_SIGN_ENTITLEMENTS" = "TheoActivityMonitor/TheoActivityMonitor.entitlements";
+				"SDKROOT" = "iphoneos";
+				"SWIFT_VERSION" = "5.0";
+				"CODE_SIGN_STYLE" = "Automatic";
+				"CURRENT_PROJECT_VERSION" = "1";
+				"IPHONEOS_DEPLOYMENT_TARGET" = "16.0";
+				"PRODUCT_BUNDLE_IDENTIFIER" = "com.example.ddl.prototype01.TheoActivityMonitor";
+				"REGISTER_APP_GROUPS" = "YES";
 			};
-		};
-		"DE8F4FC1616445D6B372F179" = {
-			"isa" = "PBXContainerItemProxy";
-			"containerPortal" = "244210E48437B6556980A702";
-			"proxyType" = 1;
-			"remoteGlobalIDString" = "91D183EDB128FF43C5F53E1D";
-			"remoteInfo" = "TheoShieldConfiguration";
-		};
-		"D81CC7D7629317EC10B7D319" = {
-			"isa" = "PBXTargetDependency";
-			"target" = "91D183EDB128FF43C5F53E1D";
-			"targetProxy" = "DE8F4FC1616445D6B372F179";
-		};
-		"C18440359ACCF2DF844A4B2B" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "07F44D28A10D9B762C5B8324";
-			"settings" = {
-				"ATTRIBUTES" = ("RemoveHeadersOnCopy");
-			};
-		};
-		"58D07CA348DEB6219A4D01B8" = {
-			"isa" = "PBXContainerItemProxy";
-			"containerPortal" = "244210E48437B6556980A702";
-			"proxyType" = 1;
-			"remoteGlobalIDString" = "DAC11E66B4D9D855E1CAC4BD";
-			"remoteInfo" = "TheoShieldAction";
-		};
-		"5540EF5AD8643ED359D81BAF" = {
-			"isa" = "PBXTargetDependency";
-			"target" = "DAC11E66B4D9D855E1CAC4BD";
-			"targetProxy" = "58D07CA348DEB6219A4D01B8";
 		};
 		"4D6BC5D6EABA3F7EB80D5FBA" = {
 			"isa" = "PBXBuildFile";
@@ -229,448 +71,678 @@
 				"ATTRIBUTES" = ("RemoveHeadersOnCopy");
 			};
 		};
-		"DD615B768CF8ACFE2ED53E52" = {
-			"isa" = "PBXCopyFilesBuildPhase";
-			"buildActionMask" = 2147483647;
-			"dstPath" = "";
-			"dstSubfolderSpec" = 13;
-			"files" = ("7E7AE76C1966EACD01F32062", "C18440359ACCF2DF844A4B2B", "4D6BC5D6EABA3F7EB80D5FBA");
-			"name" = "Embed App Extensions";
-			"runOnlyForDeploymentPostprocessing" = 0;
-		};
 		"3A7C2E96CCE794F11349E994" = {
 			"isa" = "XCBuildConfiguration";
 			"name" = "Debug";
 			"buildSettings" = {
-				"PRODUCT_NAME" = "$(TARGET_NAME)";
-				"PRODUCT_BUNDLE_IDENTIFIER" = "com.example.ddl.prototype01";
-				"SWIFT_VERSION" = "5.0";
-				"IPHONEOS_DEPLOYMENT_TARGET" = "16.0";
-				"SDKROOT" = "iphoneos";
-				"SUPPORTED_PLATFORMS" = "iphoneos iphonesimulator";
-				"TARGETED_DEVICE_FAMILY" = "1,2";
-				"DEVELOPMENT_TEAM" = "";
-				"CODE_SIGN_STYLE" = "Automatic";
-				"CODE_SIGN_IDENTITY" = "Apple Development";
 				"CODE_SIGN_ENTITLEMENTS" = "DeadlineTheo/DeadlineTheo.entitlements";
-				"CURRENT_PROJECT_VERSION" = "1";
 				"MARKETING_VERSION" = "0.1";
+				"DEVELOPMENT_TEAM" = "";
+				"SUPPORTED_PLATFORMS" = "iphoneos iphonesimulator";
+				"CURRENT_PROJECT_VERSION" = "1";
+				"PRODUCT_BUNDLE_IDENTIFIER" = "com.example.ddl.prototype01";
+				"ENABLE_USER_SCRIPT_SANDBOXING" = "YES";
+				"INFOPLIST_KEY_CFBundleDisplayName" = "Deadline Theo";
+				"INFOPLIST_KEY_UILaunchScreen_Generation" = "YES";
+				"TARGETED_DEVICE_FAMILY" = "1,2";
+				"CODE_SIGN_STYLE" = "Automatic";
 				"SWIFT_OPTIMIZATION_LEVEL" = "-Onone";
-				"ENABLE_USER_SCRIPT_SANDBOXING" = "YES";
-				"GENERATE_INFOPLIST_FILE" = "YES";
-				"INFOPLIST_KEY_CFBundleDisplayName" = "Deadline Theo";
-				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation" = "YES";
-				"INFOPLIST_KEY_UILaunchScreen_Generation" = "YES";
-				"INFOPLIST_KEY_UISupportedInterfaceOrientations" = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				"LD_RUNPATH_SEARCH_PATHS" = ("$(inherited)", "@executable_path/Frameworks");
-			};
-		};
-		"6FAB2D1E61557269E9A1C561" = {
-			"isa" = "XCBuildConfiguration";
-			"name" = "Release";
-			"buildSettings" = {
-				"PRODUCT_NAME" = "$(TARGET_NAME)";
-				"PRODUCT_BUNDLE_IDENTIFIER" = "com.example.ddl.prototype01";
-				"SWIFT_VERSION" = "5.0";
-				"IPHONEOS_DEPLOYMENT_TARGET" = "16.0";
 				"SDKROOT" = "iphoneos";
-				"SUPPORTED_PLATFORMS" = "iphoneos iphonesimulator";
-				"TARGETED_DEVICE_FAMILY" = "1,2";
-				"DEVELOPMENT_TEAM" = "";
-				"CODE_SIGN_STYLE" = "Automatic";
-				"CODE_SIGN_IDENTITY" = "Apple Development";
-				"CODE_SIGN_ENTITLEMENTS" = "DeadlineTheo/DeadlineTheo.entitlements";
-				"CURRENT_PROJECT_VERSION" = "1";
-				"MARKETING_VERSION" = "0.1";
-				"SWIFT_OPTIMIZATION_LEVEL" = "-O";
-				"ENABLE_USER_SCRIPT_SANDBOXING" = "YES";
-				"GENERATE_INFOPLIST_FILE" = "YES";
-				"INFOPLIST_KEY_CFBundleDisplayName" = "Deadline Theo";
-				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation" = "YES";
-				"INFOPLIST_KEY_UILaunchScreen_Generation" = "YES";
-				"INFOPLIST_KEY_UISupportedInterfaceOrientations" = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				"LD_RUNPATH_SEARCH_PATHS" = ("$(inherited)", "@executable_path/Frameworks");
+				"SWIFT_VERSION" = "5.0";
+				"PRODUCT_NAME" = "$(TARGET_NAME)";
+				"IPHONEOS_DEPLOYMENT_TARGET" = "16.0";
+				"CODE_SIGN_IDENTITY" = "Apple Development";
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation" = "YES";
+				"INFOPLIST_KEY_UISupportedInterfaceOrientations" = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				"GENERATE_INFOPLIST_FILE" = "YES";
+				"REGISTER_APP_GROUPS" = "YES";
 			};
 		};
-		"A2BBE6F46A4C5BE6CD597A44" = {
-			"isa" = "XCConfigurationList";
-			"buildConfigurations" = ("3A7C2E96CCE794F11349E994", "6FAB2D1E61557269E9A1C561");
-			"defaultConfigurationIsVisible" = 0;
-			"defaultConfigurationName" = "Release";
+		"50A9FAA061445949DAA93AB5" = {
+			"path" = "TheoShieldAction.entitlements";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "text.plist.entitlements";
+			"sourceTree" = "<group>";
 		};
-		"E599CFC7A0E4A45A89E2C660" = {
-			"isa" = "PBXNativeTarget";
-			"buildConfigurationList" = "A2BBE6F46A4C5BE6CD597A44";
-			"buildPhases" = ("FAD9F9492105FA405688ED9A", "A955D73283B9643D838EC6F7", "F55BF6EB804AE63B9C38BFBD", "DD615B768CF8ACFE2ED53E52");
-			"buildRules" = ();
-			"dependencies" = ("CEEB78990E1B20926B8840C2", "D81CC7D7629317EC10B7D319", "5540EF5AD8643ED359D81BAF");
-			"name" = "DeadlineTheo";
-			"productName" = "DeadlineTheo";
-			"productReference" = "6CC309B63126E929A596CB91";
-			"productType" = "com.apple.product-type.application";
+		"693AF5822BE8ED0DA699F680" = {
+			"path" = "TheoActivityMonitor.entitlements";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "text.plist.entitlements";
+			"sourceTree" = "<group>";
 		};
-		"FFF7140111B96DFA70B4F74C" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "47480F3B7B104AF62A2CFB06";
+		"D81CC7D7629317EC10B7D319" = {
+			"isa" = "PBXTargetDependency";
+			"target" = "91D183EDB128FF43C5F53E1D";
+			"targetProxy" = "DE8F4FC1616445D6B372F179";
 		};
-		"C2296EC59026D4B80BA26077" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "482756238FB99AD5C82540CA";
+		"39F67D0408DBFE008A6A6CDB" = {
+			"isa" = "PBXContainerItemProxy";
+			"containerPortal" = "244210E48437B6556980A702";
+			"remoteGlobalIDString" = "3C5038DEF8428BFB385426CA";
+			"remoteInfo" = "TheoActivityMonitor";
+			"proxyType" = "1";
 		};
-		"04B8BE406606946B2D691004" = {
+		"0AAC4AE8382F70F403DE3E2D" = {
+			"path" = "TheoActivityMonitor";
+			"isa" = "PBXGroup";
+			"children" = ("47480F3B7B104AF62A2CFB06", "693AF5822BE8ED0DA699F680", "93A6A41E751971C3B4DEC27E");
+			"sourceTree" = "<group>";
+		};
+		"FAD9F9492105FA405688ED9A" = {
 			"isa" = "PBXSourcesBuildPhase";
-			"buildActionMask" = 2147483647;
-			"files" = ("FFF7140111B96DFA70B4F74C", "C2296EC59026D4B80BA26077");
-			"runOnlyForDeploymentPostprocessing" = 0;
-		};
-		"8E524767C0C4BC230B3C7AA2" = {
-			"isa" = "PBXFrameworksBuildPhase";
-			"buildActionMask" = 2147483647;
-			"files" = ();
-			"runOnlyForDeploymentPostprocessing" = 0;
-		};
-		"2470751679C6953911A78E44" = {
-			"isa" = "PBXResourcesBuildPhase";
-			"buildActionMask" = 2147483647;
-			"files" = ();
-			"runOnlyForDeploymentPostprocessing" = 0;
-		};
-		"B26E841B5935421AD7FFE30D" = {
-			"isa" = "XCBuildConfiguration";
-			"name" = "Debug";
-			"buildSettings" = {
-				"PRODUCT_NAME" = "$(TARGET_NAME)";
-				"PRODUCT_BUNDLE_IDENTIFIER" = "com.example.ddl.prototype01.TheoActivityMonitor";
-				"SWIFT_VERSION" = "5.0";
-				"IPHONEOS_DEPLOYMENT_TARGET" = "16.0";
-				"SDKROOT" = "iphoneos";
-				"SUPPORTED_PLATFORMS" = "iphoneos iphonesimulator";
-				"TARGETED_DEVICE_FAMILY" = "1,2";
-				"DEVELOPMENT_TEAM" = "";
-				"CODE_SIGN_STYLE" = "Automatic";
-				"CODE_SIGN_IDENTITY" = "Apple Development";
-				"CODE_SIGN_ENTITLEMENTS" = "TheoActivityMonitor/TheoActivityMonitor.entitlements";
-				"CURRENT_PROJECT_VERSION" = "1";
-				"MARKETING_VERSION" = "0.1";
-				"SWIFT_OPTIMIZATION_LEVEL" = "-Onone";
-				"ENABLE_USER_SCRIPT_SANDBOXING" = "YES";
-				"INFOPLIST_FILE" = "TheoActivityMonitor/Info.plist";
-				"APPLICATION_EXTENSION_API_ONLY" = "YES";
-				"SKIP_INSTALL" = "YES";
-				"LD_RUNPATH_SEARCH_PATHS" = ("$(inherited)", "@executable_path/Frameworks", "@executable_path/../../Frameworks");
-			};
-		};
-		"3A3B16E19A9F2C52CD9EA277" = {
-			"isa" = "XCBuildConfiguration";
-			"name" = "Release";
-			"buildSettings" = {
-				"PRODUCT_NAME" = "$(TARGET_NAME)";
-				"PRODUCT_BUNDLE_IDENTIFIER" = "com.example.ddl.prototype01.TheoActivityMonitor";
-				"SWIFT_VERSION" = "5.0";
-				"IPHONEOS_DEPLOYMENT_TARGET" = "16.0";
-				"SDKROOT" = "iphoneos";
-				"SUPPORTED_PLATFORMS" = "iphoneos iphonesimulator";
-				"TARGETED_DEVICE_FAMILY" = "1,2";
-				"DEVELOPMENT_TEAM" = "";
-				"CODE_SIGN_STYLE" = "Automatic";
-				"CODE_SIGN_IDENTITY" = "Apple Development";
-				"CODE_SIGN_ENTITLEMENTS" = "TheoActivityMonitor/TheoActivityMonitor.entitlements";
-				"CURRENT_PROJECT_VERSION" = "1";
-				"MARKETING_VERSION" = "0.1";
-				"SWIFT_OPTIMIZATION_LEVEL" = "-O";
-				"ENABLE_USER_SCRIPT_SANDBOXING" = "YES";
-				"INFOPLIST_FILE" = "TheoActivityMonitor/Info.plist";
-				"APPLICATION_EXTENSION_API_ONLY" = "YES";
-				"SKIP_INSTALL" = "YES";
-				"LD_RUNPATH_SEARCH_PATHS" = ("$(inherited)", "@executable_path/Frameworks", "@executable_path/../../Frameworks");
-			};
-		};
-		"EEAA49C34327584851B30548" = {
-			"isa" = "XCConfigurationList";
-			"buildConfigurations" = ("B26E841B5935421AD7FFE30D", "3A3B16E19A9F2C52CD9EA277");
-			"defaultConfigurationIsVisible" = 0;
-			"defaultConfigurationName" = "Release";
-		};
-		"3C5038DEF8428BFB385426CA" = {
-			"isa" = "PBXNativeTarget";
-			"buildConfigurationList" = "EEAA49C34327584851B30548";
-			"buildPhases" = ("04B8BE406606946B2D691004", "8E524767C0C4BC230B3C7AA2", "2470751679C6953911A78E44");
-			"buildRules" = ();
-			"dependencies" = ();
-			"name" = "TheoActivityMonitor";
-			"productName" = "TheoActivityMonitor";
-			"productReference" = "6FC3270628E675C2C00392B6";
-			"productType" = "com.apple.product-type.app-extension";
-		};
-		"962D4CA0E01BAC7745331AC1" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "DF6A0F91CBD3DBCB17D7F000";
-		};
-		"36CEDB08837F26ECBA174135" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "482756238FB99AD5C82540CA";
+			"buildActionMask" = "2147483647";
+			"files" = ("321B2076F11A34F2F7735A6E", "947411804ABBA0EFD880E187", "295035929823D2FFC954AAE7", "F2B928754D615801CE2CFEA3", "DA2D9DC2A227CE4466971CCF", "518595A9BCCBCCA02941158E");
+			"runOnlyForDeploymentPostprocessing" = "0";
 		};
 		"E64051DDB3E04BDAE509B288" = {
 			"isa" = "PBXSourcesBuildPhase";
-			"buildActionMask" = 2147483647;
+			"buildActionMask" = "2147483647";
 			"files" = ("962D4CA0E01BAC7745331AC1", "36CEDB08837F26ECBA174135");
-			"runOnlyForDeploymentPostprocessing" = 0;
+			"runOnlyForDeploymentPostprocessing" = "0";
 		};
-		"B20C1C2339931D6670695AD1" = {
-			"isa" = "PBXFrameworksBuildPhase";
-			"buildActionMask" = 2147483647;
-			"files" = ();
-			"runOnlyForDeploymentPostprocessing" = 0;
-		};
-		"F5A7B615D179A790C33AE72E" = {
-			"isa" = "PBXResourcesBuildPhase";
-			"buildActionMask" = 2147483647;
-			"files" = ();
-			"runOnlyForDeploymentPostprocessing" = 0;
+		"7E7AE76C1966EACD01F32062" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "6FC3270628E675C2C00392B6";
+			"settings" = {
+				"ATTRIBUTES" = ("RemoveHeadersOnCopy");
+			};
 		};
 		"D4A64DAE26C42BAC1C4BEC39" = {
 			"isa" = "XCBuildConfiguration";
 			"name" = "Debug";
 			"buildSettings" = {
 				"PRODUCT_NAME" = "$(TARGET_NAME)";
-				"PRODUCT_BUNDLE_IDENTIFIER" = "com.example.ddl.prototype01.TheoShieldConfiguration";
-				"SWIFT_VERSION" = "5.0";
-				"IPHONEOS_DEPLOYMENT_TARGET" = "16.0";
-				"SDKROOT" = "iphoneos";
-				"SUPPORTED_PLATFORMS" = "iphoneos iphonesimulator";
-				"TARGETED_DEVICE_FAMILY" = "1,2";
-				"DEVELOPMENT_TEAM" = "";
-				"CODE_SIGN_STYLE" = "Automatic";
-				"CODE_SIGN_IDENTITY" = "Apple Development";
-				"CODE_SIGN_ENTITLEMENTS" = "TheoShieldConfiguration/TheoShieldConfiguration.entitlements";
-				"CURRENT_PROJECT_VERSION" = "1";
-				"MARKETING_VERSION" = "0.1";
-				"SWIFT_OPTIMIZATION_LEVEL" = "-Onone";
-				"ENABLE_USER_SCRIPT_SANDBOXING" = "YES";
-				"INFOPLIST_FILE" = "TheoShieldConfiguration/Info.plist";
 				"APPLICATION_EXTENSION_API_ONLY" = "YES";
-				"SKIP_INSTALL" = "YES";
+				"DEVELOPMENT_TEAM" = "";
 				"LD_RUNPATH_SEARCH_PATHS" = ("$(inherited)", "@executable_path/Frameworks", "@executable_path/../../Frameworks");
+				"TARGETED_DEVICE_FAMILY" = "1,2";
+				"MARKETING_VERSION" = "0.1";
+				"INFOPLIST_FILE" = "TheoShieldConfiguration/Info.plist";
+				"CODE_SIGN_IDENTITY" = "Apple Development";
+				"SKIP_INSTALL" = "YES";
+				"ENABLE_USER_SCRIPT_SANDBOXING" = "YES";
+				"SWIFT_OPTIMIZATION_LEVEL" = "-Onone";
+				"SUPPORTED_PLATFORMS" = "iphoneos iphonesimulator";
+				"CODE_SIGN_ENTITLEMENTS" = "TheoShieldConfiguration/TheoShieldConfiguration.entitlements";
+				"SDKROOT" = "iphoneos";
+				"SWIFT_VERSION" = "5.0";
+				"CODE_SIGN_STYLE" = "Automatic";
+				"CURRENT_PROJECT_VERSION" = "1";
+				"IPHONEOS_DEPLOYMENT_TARGET" = "16.0";
+				"PRODUCT_BUNDLE_IDENTIFIER" = "com.example.ddl.prototype01.TheoShieldConfiguration";
+				"REGISTER_APP_GROUPS" = "YES";
 			};
+		};
+		"8E524767C0C4BC230B3C7AA2" = {
+			"isa" = "PBXFrameworksBuildPhase";
+			"buildActionMask" = "2147483647";
+			"files" = ();
+			"runOnlyForDeploymentPostprocessing" = "0";
+		};
+		"D86458D7AD4F07315FF3488C" = {
+			"isa" = "PBXResourcesBuildPhase";
+			"buildActionMask" = "2147483647";
+			"files" = ();
+			"runOnlyForDeploymentPostprocessing" = "0";
+		};
+		"3AAC3E4B9F89E8AC17E07C54" = {
+			"path" = "ShieldActionExtension.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"E29EA9720F1F90E5D3182AF9" = {
+			"path" = "DeadlineTheo";
+			"isa" = "PBXGroup";
+			"children" = ("5E5BED79FE27C690A2E6FD41", "643DEC775D5481C208EAF475", "B00AB5CC8AC15ED663172077");
+			"sourceTree" = "<group>";
+		};
+		"F2389253433CBEC1BC790F1C" = {
+			"isa" = "PBXGroup";
+			"name" = "Shared";
+			"children" = ("482756238FB99AD5C82540CA", "9A4296AE14C374BBCB11D17A", "075D7C9D7C626351AC3D38B4", "CB4F0216DFBDCB5331B1B92F");
+			"sourceTree" = "<group>";
+		};
+		"5601377392F2E70B78FC0822" = {
+			"path" = "Info.plist";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "text.plist.xml";
+			"sourceTree" = "<group>";
+		};
+		"DD615B768CF8ACFE2ED53E52" = {
+			"buildActionMask" = "2147483647";
+			"dstSubfolderSpec" = "13";
+			"isa" = "PBXCopyFilesBuildPhase";
+			"runOnlyForDeploymentPostprocessing" = "0";
+			"dstPath" = "";
+			"files" = ("7E7AE76C1966EACD01F32062", "C18440359ACCF2DF844A4B2B", "4D6BC5D6EABA3F7EB80D5FBA");
+			"name" = "Embed App Extensions";
+		};
+		"6FAB2D1E61557269E9A1C561" = {
+			"isa" = "XCBuildConfiguration";
+			"name" = "Release";
+			"buildSettings" = {
+				"CODE_SIGN_ENTITLEMENTS" = "DeadlineTheo/DeadlineTheo.entitlements";
+				"MARKETING_VERSION" = "0.1";
+				"DEVELOPMENT_TEAM" = "";
+				"SUPPORTED_PLATFORMS" = "iphoneos iphonesimulator";
+				"CURRENT_PROJECT_VERSION" = "1";
+				"PRODUCT_BUNDLE_IDENTIFIER" = "com.example.ddl.prototype01";
+				"ENABLE_USER_SCRIPT_SANDBOXING" = "YES";
+				"INFOPLIST_KEY_CFBundleDisplayName" = "Deadline Theo";
+				"INFOPLIST_KEY_UILaunchScreen_Generation" = "YES";
+				"TARGETED_DEVICE_FAMILY" = "1,2";
+				"CODE_SIGN_STYLE" = "Automatic";
+				"SWIFT_OPTIMIZATION_LEVEL" = "-O";
+				"SDKROOT" = "iphoneos";
+				"LD_RUNPATH_SEARCH_PATHS" = ("$(inherited)", "@executable_path/Frameworks");
+				"SWIFT_VERSION" = "5.0";
+				"PRODUCT_NAME" = "$(TARGET_NAME)";
+				"IPHONEOS_DEPLOYMENT_TARGET" = "16.0";
+				"CODE_SIGN_IDENTITY" = "Apple Development";
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation" = "YES";
+				"INFOPLIST_KEY_UISupportedInterfaceOrientations" = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				"GENERATE_INFOPLIST_FILE" = "YES";
+				"REGISTER_APP_GROUPS" = "YES";
+			};
+		};
+		"A2BBE6F46A4C5BE6CD597A44" = {
+			"isa" = "XCConfigurationList";
+			"defaultConfigurationIsVisible" = "0";
+			"defaultConfigurationName" = "Release";
+			"buildConfigurations" = ("3A7C2E96CCE794F11349E994", "6FAB2D1E61557269E9A1C561");
+		};
+		"0A3E27B8CA818264D75C8D81" = {
+			"isa" = "PBXGroup";
+			"name" = "Products";
+			"children" = ("6CC309B63126E929A596CB91", "6FC3270628E675C2C00392B6", "07F44D28A10D9B762C5B8324", "AC5E24043582C47EBDEB4FD3");
+			"sourceTree" = "<group>";
+		};
+		"FFF7140111B96DFA70B4F74C" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "47480F3B7B104AF62A2CFB06";
+		};
+		"DE8F4FC1616445D6B372F179" = {
+			"isa" = "PBXContainerItemProxy";
+			"containerPortal" = "244210E48437B6556980A702";
+			"remoteGlobalIDString" = "91D183EDB128FF43C5F53E1D";
+			"remoteInfo" = "TheoShieldConfiguration";
+			"proxyType" = "1";
+		};
+		"6CC309B63126E929A596CB91" = {
+			"path" = "DeadlineTheo.app";
+			"isa" = "PBXFileReference";
+			"includeInIndex" = "0";
+			"explicitFileType" = "wrapper.application";
+			"sourceTree" = "BUILT_PRODUCTS_DIR";
+		};
+		"3A3B16E19A9F2C52CD9EA277" = {
+			"isa" = "XCBuildConfiguration";
+			"name" = "Release";
+			"buildSettings" = {
+				"PRODUCT_NAME" = "$(TARGET_NAME)";
+				"APPLICATION_EXTENSION_API_ONLY" = "YES";
+				"DEVELOPMENT_TEAM" = "";
+				"LD_RUNPATH_SEARCH_PATHS" = ("$(inherited)", "@executable_path/Frameworks", "@executable_path/../../Frameworks");
+				"TARGETED_DEVICE_FAMILY" = "1,2";
+				"MARKETING_VERSION" = "0.1";
+				"INFOPLIST_FILE" = "TheoActivityMonitor/Info.plist";
+				"CODE_SIGN_IDENTITY" = "Apple Development";
+				"SKIP_INSTALL" = "YES";
+				"ENABLE_USER_SCRIPT_SANDBOXING" = "YES";
+				"SWIFT_OPTIMIZATION_LEVEL" = "-O";
+				"SUPPORTED_PLATFORMS" = "iphoneos iphonesimulator";
+				"CODE_SIGN_ENTITLEMENTS" = "TheoActivityMonitor/TheoActivityMonitor.entitlements";
+				"SDKROOT" = "iphoneos";
+				"SWIFT_VERSION" = "5.0";
+				"CODE_SIGN_STYLE" = "Automatic";
+				"CURRENT_PROJECT_VERSION" = "1";
+				"IPHONEOS_DEPLOYMENT_TARGET" = "16.0";
+				"PRODUCT_BUNDLE_IDENTIFIER" = "com.example.ddl.prototype01.TheoActivityMonitor";
+				"REGISTER_APP_GROUPS" = "YES";
+			};
+		};
+		"47480F3B7B104AF62A2CFB06" = {
+			"path" = "DeviceActivityMonitorExtension.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"58D07CA348DEB6219A4D01B8" = {
+			"isa" = "PBXContainerItemProxy";
+			"containerPortal" = "244210E48437B6556980A702";
+			"remoteGlobalIDString" = "DAC11E66B4D9D855E1CAC4BD";
+			"remoteInfo" = "TheoShieldAction";
+			"proxyType" = "1";
+		};
+		"643DEC775D5481C208EAF475" = {
+			"path" = "DeadlineTheo.entitlements";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "text.plist.entitlements";
+			"sourceTree" = "<group>";
+		};
+		"C2296EC59026D4B80BA26077" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "482756238FB99AD5C82540CA";
+		};
+		"CEEB78990E1B20926B8840C2" = {
+			"isa" = "PBXTargetDependency";
+			"target" = "3C5038DEF8428BFB385426CA";
+			"targetProxy" = "39F67D0408DBFE008A6A6CDB";
 		};
 		"F25D4B6FDB99D64A8924E69F" = {
 			"isa" = "XCBuildConfiguration";
 			"name" = "Release";
 			"buildSettings" = {
 				"PRODUCT_NAME" = "$(TARGET_NAME)";
-				"PRODUCT_BUNDLE_IDENTIFIER" = "com.example.ddl.prototype01.TheoShieldConfiguration";
-				"SWIFT_VERSION" = "5.0";
-				"IPHONEOS_DEPLOYMENT_TARGET" = "16.0";
-				"SDKROOT" = "iphoneos";
-				"SUPPORTED_PLATFORMS" = "iphoneos iphonesimulator";
-				"TARGETED_DEVICE_FAMILY" = "1,2";
-				"DEVELOPMENT_TEAM" = "";
-				"CODE_SIGN_STYLE" = "Automatic";
-				"CODE_SIGN_IDENTITY" = "Apple Development";
-				"CODE_SIGN_ENTITLEMENTS" = "TheoShieldConfiguration/TheoShieldConfiguration.entitlements";
-				"CURRENT_PROJECT_VERSION" = "1";
-				"MARKETING_VERSION" = "0.1";
-				"SWIFT_OPTIMIZATION_LEVEL" = "-O";
-				"ENABLE_USER_SCRIPT_SANDBOXING" = "YES";
-				"INFOPLIST_FILE" = "TheoShieldConfiguration/Info.plist";
 				"APPLICATION_EXTENSION_API_ONLY" = "YES";
-				"SKIP_INSTALL" = "YES";
+				"DEVELOPMENT_TEAM" = "";
 				"LD_RUNPATH_SEARCH_PATHS" = ("$(inherited)", "@executable_path/Frameworks", "@executable_path/../../Frameworks");
+				"TARGETED_DEVICE_FAMILY" = "1,2";
+				"MARKETING_VERSION" = "0.1";
+				"INFOPLIST_FILE" = "TheoShieldConfiguration/Info.plist";
+				"CODE_SIGN_IDENTITY" = "Apple Development";
+				"SKIP_INSTALL" = "YES";
+				"ENABLE_USER_SCRIPT_SANDBOXING" = "YES";
+				"SWIFT_OPTIMIZATION_LEVEL" = "-O";
+				"SUPPORTED_PLATFORMS" = "iphoneos iphonesimulator";
+				"CODE_SIGN_ENTITLEMENTS" = "TheoShieldConfiguration/TheoShieldConfiguration.entitlements";
+				"SDKROOT" = "iphoneos";
+				"SWIFT_VERSION" = "5.0";
+				"CODE_SIGN_STYLE" = "Automatic";
+				"CURRENT_PROJECT_VERSION" = "1";
+				"IPHONEOS_DEPLOYMENT_TARGET" = "16.0";
+				"PRODUCT_BUNDLE_IDENTIFIER" = "com.example.ddl.prototype01.TheoShieldConfiguration";
+				"REGISTER_APP_GROUPS" = "YES";
 			};
 		};
 		"30496C68CCF077B0D1D69623" = {
 			"isa" = "XCConfigurationList";
-			"buildConfigurations" = ("D4A64DAE26C42BAC1C4BEC39", "F25D4B6FDB99D64A8924E69F");
-			"defaultConfigurationIsVisible" = 0;
+			"defaultConfigurationIsVisible" = "0";
 			"defaultConfigurationName" = "Release";
+			"buildConfigurations" = ("D4A64DAE26C42BAC1C4BEC39", "F25D4B6FDB99D64A8924E69F");
 		};
 		"91D183EDB128FF43C5F53E1D" = {
-			"isa" = "PBXNativeTarget";
 			"buildConfigurationList" = "30496C68CCF077B0D1D69623";
-			"buildPhases" = ("E64051DDB3E04BDAE509B288", "B20C1C2339931D6670695AD1", "F5A7B615D179A790C33AE72E");
-			"buildRules" = ();
-			"dependencies" = ();
-			"name" = "TheoShieldConfiguration";
-			"productName" = "TheoShieldConfiguration";
 			"productReference" = "07F44D28A10D9B762C5B8324";
 			"productType" = "com.apple.product-type.app-extension";
+			"productName" = "TheoShieldConfiguration";
+			"isa" = "PBXNativeTarget";
+			"buildPhases" = ("E64051DDB3E04BDAE509B288", "B20C1C2339931D6670695AD1", "F5A7B615D179A790C33AE72E");
+			"dependencies" = ();
+			"name" = "TheoShieldConfiguration";
+			"buildRules" = ();
 		};
-		"DE77B05921D832A0AE822317" = {
+		"C238D1758DC9F94AD7800AB9" = {
+			"isa" = "XCConfigurationList";
+			"defaultConfigurationIsVisible" = "0";
+			"defaultConfigurationName" = "Release";
+			"buildConfigurations" = ("C6832E13935A7904FECEE6EC", "4A6A9F38AC4B2F0CBCAA0BE2");
+		};
+		"04B8BE406606946B2D691004" = {
+			"isa" = "PBXSourcesBuildPhase";
+			"buildActionMask" = "2147483647";
+			"files" = ("FFF7140111B96DFA70B4F74C", "C2296EC59026D4B80BA26077", "B47FCED4DA0E406FAC86F960", "C84D9D4BAC255B1F25A601C4", "71E6FC140F323915DEDCE1CC");
+			"runOnlyForDeploymentPostprocessing" = "0";
+		};
+		"66474652908ED2E0775E04A9" = {
+			"isa" = "PBXGroup";
+			"sourceTree" = "<group>";
+			"children" = ("E29EA9720F1F90E5D3182AF9", "0AAC4AE8382F70F403DE3E2D", "20103741EF4BACC5F0100230", "E847AFF228C4F2C453DD11A3", "F2389253433CBEC1BC790F1C", "0A3E27B8CA818264D75C8D81");
+		};
+		"6FC3270628E675C2C00392B6" = {
+			"path" = "TheoActivityMonitor.appex";
+			"isa" = "PBXFileReference";
+			"includeInIndex" = "0";
+			"explicitFileType" = "wrapper.app-extension";
+			"sourceTree" = "BUILT_PRODUCTS_DIR";
+		};
+		"244210E48437B6556980A702" = {
+			"buildConfigurationList" = "76F8DEC3DFE0BDB465198890";
+			"targets" = ("E599CFC7A0E4A45A89E2C660", "3C5038DEF8428BFB385426CA", "91D183EDB128FF43C5F53E1D", "DAC11E66B4D9D855E1CAC4BD");
+			"developmentRegion" = "en";
+			"knownRegions" = ("en", "Base");
+			"isa" = "PBXProject";
+			"compatibilityVersion" = "Xcode 14.0";
+			"productRefGroup" = "0A3E27B8CA818264D75C8D81";
+			"projectDirPath" = "";
+			"attributes" = {
+				"LastUpgradeCheck" = "2660";
+				"TargetAttributes" = {
+					"3C5038DEF8428BFB385426CA" = {
+						"SystemCapabilities" = {
+							"com.apple.FamilyControls" = {
+								"enabled" = "1";
+							};
+							"com.apple.ApplicationGroups.iOS" = {
+								"enabled" = 1;
+							};
+						};
+						"ProvisioningStyle" = "Automatic";
+						"DevelopmentTeam" = "YOUR_TEAM_ID";
+						"CreatedOnToolsVersion" = "26.6";
+					};
+					"E599CFC7A0E4A45A89E2C660" = {
+						"SystemCapabilities" = {
+							"com.apple.FamilyControls" = {
+								"enabled" = "1";
+							};
+							"com.apple.ApplicationGroups.iOS" = {
+								"enabled" = 1;
+							};
+						};
+						"ProvisioningStyle" = "Automatic";
+						"DevelopmentTeam" = "YOUR_TEAM_ID";
+						"CreatedOnToolsVersion" = "26.6";
+					};
+					"91D183EDB128FF43C5F53E1D" = {
+						"SystemCapabilities" = {
+							"com.apple.FamilyControls" = {
+								"enabled" = "1";
+							};
+							"com.apple.ApplicationGroups.iOS" = {
+								"enabled" = 1;
+							};
+						};
+						"ProvisioningStyle" = "Automatic";
+						"DevelopmentTeam" = "YOUR_TEAM_ID";
+						"CreatedOnToolsVersion" = "26.6";
+					};
+					"DAC11E66B4D9D855E1CAC4BD" = {
+						"SystemCapabilities" = {
+							"com.apple.FamilyControls" = {
+								"enabled" = "1";
+							};
+							"com.apple.ApplicationGroups.iOS" = {
+								"enabled" = 1;
+							};
+						};
+						"ProvisioningStyle" = "Automatic";
+						"DevelopmentTeam" = "YOUR_TEAM_ID";
+						"CreatedOnToolsVersion" = "26.6";
+					};
+				};
+			};
+			"hasScannedForEncodings" = "0";
+			"projectRoot" = "";
+			"mainGroup" = "66474652908ED2E0775E04A9";
+		};
+		"F948D4D7E4CAA08CA6102EFF" = {
+			"path" = "Info.plist";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "text.plist.xml";
+			"sourceTree" = "<group>";
+		};
+		"14819DCBF41314BD8F020DCF" = {
+			"isa" = "PBXSourcesBuildPhase";
+			"buildActionMask" = "2147483647";
+			"files" = ("DE77B05921D832A0AE822317", "21973F41A72517037103CA3A");
+			"runOnlyForDeploymentPostprocessing" = "0";
+		};
+		"962D4CA0E01BAC7745331AC1" = {
 			"isa" = "PBXBuildFile";
-			"fileRef" = "3AAC3E4B9F89E8AC17E07C54";
+			"fileRef" = "DF6A0F91CBD3DBCB17D7F000";
+		};
+		"FB03D7E186E87752C93DCC84" = {
+			"path" = "TheoShieldConfiguration.entitlements";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "text.plist.entitlements";
+			"sourceTree" = "<group>";
+		};
+		"20103741EF4BACC5F0100230" = {
+			"path" = "TheoShieldConfiguration";
+			"isa" = "PBXGroup";
+			"children" = ("DF6A0F91CBD3DBCB17D7F000", "FB03D7E186E87752C93DCC84", "F948D4D7E4CAA08CA6102EFF");
+			"sourceTree" = "<group>";
+		};
+		"2D49EBE4C1EF4247FC7BA12F" = {
+			"isa" = "XCBuildConfiguration";
+			"name" = "Release";
+			"buildSettings" = {
+				"CLANG_ENABLE_OBJC_ARC" = "YES";
+				"SWIFT_ACTIVE_COMPILATION_CONDITIONS" = "";
+				"CLANG_ENABLE_MODULES" = "YES";
+				"DEBUG_INFORMATION_FORMAT" = "dwarf";
+			};
+		};
+		"E847AFF228C4F2C453DD11A3" = {
+			"path" = "TheoShieldAction";
+			"isa" = "PBXGroup";
+			"children" = ("3AAC3E4B9F89E8AC17E07C54", "50A9FAA061445949DAA93AB5", "5601377392F2E70B78FC0822");
+			"sourceTree" = "<group>";
+		};
+		"482756238FB99AD5C82540CA" = {
+			"path" = "Shared/PrototypeConfiguration.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"947411804ABBA0EFD880E187" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "482756238FB99AD5C82540CA";
+		};
+		"07F44D28A10D9B762C5B8324" = {
+			"path" = "TheoShieldConfiguration.appex";
+			"isa" = "PBXFileReference";
+			"includeInIndex" = "0";
+			"explicitFileType" = "wrapper.app-extension";
+			"sourceTree" = "BUILT_PRODUCTS_DIR";
+		};
+		"F5A7B615D179A790C33AE72E" = {
+			"isa" = "PBXResourcesBuildPhase";
+			"buildActionMask" = "2147483647";
+			"files" = ();
+			"runOnlyForDeploymentPostprocessing" = "0";
 		};
 		"21973F41A72517037103CA3A" = {
 			"isa" = "PBXBuildFile";
 			"fileRef" = "482756238FB99AD5C82540CA";
 		};
-		"14819DCBF41314BD8F020DCF" = {
-			"isa" = "PBXSourcesBuildPhase";
-			"buildActionMask" = 2147483647;
-			"files" = ("DE77B05921D832A0AE822317", "21973F41A72517037103CA3A");
-			"runOnlyForDeploymentPostprocessing" = 0;
+		"DF6A0F91CBD3DBCB17D7F000" = {
+			"path" = "ShieldConfigurationExtension.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"93A6A41E751971C3B4DEC27E" = {
+			"path" = "Info.plist";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "text.plist.xml";
+			"sourceTree" = "<group>";
 		};
 		"85EEFED993AB70C83F363EA3" = {
 			"isa" = "PBXFrameworksBuildPhase";
-			"buildActionMask" = 2147483647;
+			"buildActionMask" = "2147483647";
 			"files" = ();
-			"runOnlyForDeploymentPostprocessing" = 0;
-		};
-		"D86458D7AD4F07315FF3488C" = {
-			"isa" = "PBXResourcesBuildPhase";
-			"buildActionMask" = 2147483647;
-			"files" = ();
-			"runOnlyForDeploymentPostprocessing" = 0;
-		};
-		"C6832E13935A7904FECEE6EC" = {
-			"isa" = "XCBuildConfiguration";
-			"name" = "Debug";
-			"buildSettings" = {
-				"PRODUCT_NAME" = "$(TARGET_NAME)";
-				"PRODUCT_BUNDLE_IDENTIFIER" = "com.example.ddl.prototype01.TheoShieldAction";
-				"SWIFT_VERSION" = "5.0";
-				"IPHONEOS_DEPLOYMENT_TARGET" = "16.0";
-				"SDKROOT" = "iphoneos";
-				"SUPPORTED_PLATFORMS" = "iphoneos iphonesimulator";
-				"TARGETED_DEVICE_FAMILY" = "1,2";
-				"DEVELOPMENT_TEAM" = "";
-				"CODE_SIGN_STYLE" = "Automatic";
-				"CODE_SIGN_IDENTITY" = "Apple Development";
-				"CODE_SIGN_ENTITLEMENTS" = "TheoShieldAction/TheoShieldAction.entitlements";
-				"CURRENT_PROJECT_VERSION" = "1";
-				"MARKETING_VERSION" = "0.1";
-				"SWIFT_OPTIMIZATION_LEVEL" = "-Onone";
-				"ENABLE_USER_SCRIPT_SANDBOXING" = "YES";
-				"INFOPLIST_FILE" = "TheoShieldAction/Info.plist";
-				"APPLICATION_EXTENSION_API_ONLY" = "YES";
-				"SKIP_INSTALL" = "YES";
-				"LD_RUNPATH_SEARCH_PATHS" = ("$(inherited)", "@executable_path/Frameworks", "@executable_path/../../Frameworks");
-			};
+			"runOnlyForDeploymentPostprocessing" = "0";
 		};
 		"4A6A9F38AC4B2F0CBCAA0BE2" = {
 			"isa" = "XCBuildConfiguration";
 			"name" = "Release";
 			"buildSettings" = {
 				"PRODUCT_NAME" = "$(TARGET_NAME)";
-				"PRODUCT_BUNDLE_IDENTIFIER" = "com.example.ddl.prototype01.TheoShieldAction";
-				"SWIFT_VERSION" = "5.0";
-				"IPHONEOS_DEPLOYMENT_TARGET" = "16.0";
-				"SDKROOT" = "iphoneos";
-				"SUPPORTED_PLATFORMS" = "iphoneos iphonesimulator";
-				"TARGETED_DEVICE_FAMILY" = "1,2";
-				"DEVELOPMENT_TEAM" = "";
-				"CODE_SIGN_STYLE" = "Automatic";
-				"CODE_SIGN_IDENTITY" = "Apple Development";
-				"CODE_SIGN_ENTITLEMENTS" = "TheoShieldAction/TheoShieldAction.entitlements";
-				"CURRENT_PROJECT_VERSION" = "1";
-				"MARKETING_VERSION" = "0.1";
-				"SWIFT_OPTIMIZATION_LEVEL" = "-O";
-				"ENABLE_USER_SCRIPT_SANDBOXING" = "YES";
-				"INFOPLIST_FILE" = "TheoShieldAction/Info.plist";
 				"APPLICATION_EXTENSION_API_ONLY" = "YES";
-				"SKIP_INSTALL" = "YES";
+				"DEVELOPMENT_TEAM" = "";
 				"LD_RUNPATH_SEARCH_PATHS" = ("$(inherited)", "@executable_path/Frameworks", "@executable_path/../../Frameworks");
+				"TARGETED_DEVICE_FAMILY" = "1,2";
+				"MARKETING_VERSION" = "0.1";
+				"INFOPLIST_FILE" = "TheoShieldAction/Info.plist";
+				"CODE_SIGN_IDENTITY" = "Apple Development";
+				"SKIP_INSTALL" = "YES";
+				"ENABLE_USER_SCRIPT_SANDBOXING" = "YES";
+				"SWIFT_OPTIMIZATION_LEVEL" = "-O";
+				"SUPPORTED_PLATFORMS" = "iphoneos iphonesimulator";
+				"CODE_SIGN_ENTITLEMENTS" = "TheoShieldAction/TheoShieldAction.entitlements";
+				"SDKROOT" = "iphoneos";
+				"SWIFT_VERSION" = "5.0";
+				"CODE_SIGN_STYLE" = "Automatic";
+				"CURRENT_PROJECT_VERSION" = "1";
+				"IPHONEOS_DEPLOYMENT_TARGET" = "16.0";
+				"PRODUCT_BUNDLE_IDENTIFIER" = "com.example.ddl.prototype01.TheoShieldAction";
+				"REGISTER_APP_GROUPS" = "YES";
 			};
 		};
-		"C238D1758DC9F94AD7800AB9" = {
-			"isa" = "XCConfigurationList";
-			"buildConfigurations" = ("C6832E13935A7904FECEE6EC", "4A6A9F38AC4B2F0CBCAA0BE2");
-			"defaultConfigurationIsVisible" = 0;
-			"defaultConfigurationName" = "Release";
+		"AC5E24043582C47EBDEB4FD3" = {
+			"path" = "TheoShieldAction.appex";
+			"isa" = "PBXFileReference";
+			"includeInIndex" = "0";
+			"explicitFileType" = "wrapper.app-extension";
+			"sourceTree" = "BUILT_PRODUCTS_DIR";
+		};
+		"5540EF5AD8643ED359D81BAF" = {
+			"isa" = "PBXTargetDependency";
+			"target" = "DAC11E66B4D9D855E1CAC4BD";
+			"targetProxy" = "58D07CA348DEB6219A4D01B8";
+		};
+		"DE77B05921D832A0AE822317" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "3AAC3E4B9F89E8AC17E07C54";
 		};
 		"DAC11E66B4D9D855E1CAC4BD" = {
-			"isa" = "PBXNativeTarget";
 			"buildConfigurationList" = "C238D1758DC9F94AD7800AB9";
-			"buildPhases" = ("14819DCBF41314BD8F020DCF", "85EEFED993AB70C83F363EA3", "D86458D7AD4F07315FF3488C");
-			"buildRules" = ();
-			"dependencies" = ();
-			"name" = "TheoShieldAction";
-			"productName" = "TheoShieldAction";
 			"productReference" = "AC5E24043582C47EBDEB4FD3";
 			"productType" = "com.apple.product-type.app-extension";
+			"productName" = "TheoShieldAction";
+			"isa" = "PBXNativeTarget";
+			"buildPhases" = ("14819DCBF41314BD8F020DCF", "85EEFED993AB70C83F363EA3", "D86458D7AD4F07315FF3488C");
+			"dependencies" = ();
+			"name" = "TheoShieldAction";
+			"buildRules" = ();
+		};
+		"76F8DEC3DFE0BDB465198890" = {
+			"isa" = "XCConfigurationList";
+			"defaultConfigurationIsVisible" = "0";
+			"defaultConfigurationName" = "Release";
+			"buildConfigurations" = ("CBE79372575C6BD5A9131E8F", "2D49EBE4C1EF4247FC7BA12F");
+		};
+		"C6832E13935A7904FECEE6EC" = {
+			"isa" = "XCBuildConfiguration";
+			"name" = "Debug";
+			"buildSettings" = {
+				"PRODUCT_NAME" = "$(TARGET_NAME)";
+				"APPLICATION_EXTENSION_API_ONLY" = "YES";
+				"DEVELOPMENT_TEAM" = "";
+				"LD_RUNPATH_SEARCH_PATHS" = ("$(inherited)", "@executable_path/Frameworks", "@executable_path/../../Frameworks");
+				"TARGETED_DEVICE_FAMILY" = "1,2";
+				"MARKETING_VERSION" = "0.1";
+				"INFOPLIST_FILE" = "TheoShieldAction/Info.plist";
+				"CODE_SIGN_IDENTITY" = "Apple Development";
+				"SKIP_INSTALL" = "YES";
+				"ENABLE_USER_SCRIPT_SANDBOXING" = "YES";
+				"SWIFT_OPTIMIZATION_LEVEL" = "-Onone";
+				"SUPPORTED_PLATFORMS" = "iphoneos iphonesimulator";
+				"CODE_SIGN_ENTITLEMENTS" = "TheoShieldAction/TheoShieldAction.entitlements";
+				"SDKROOT" = "iphoneos";
+				"SWIFT_VERSION" = "5.0";
+				"CODE_SIGN_STYLE" = "Automatic";
+				"CURRENT_PROJECT_VERSION" = "1";
+				"IPHONEOS_DEPLOYMENT_TARGET" = "16.0";
+				"PRODUCT_BUNDLE_IDENTIFIER" = "com.example.ddl.prototype01.TheoShieldAction";
+				"REGISTER_APP_GROUPS" = "YES";
+			};
+		};
+		"C18440359ACCF2DF844A4B2B" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "07F44D28A10D9B762C5B8324";
+			"settings" = {
+				"ATTRIBUTES" = ("RemoveHeadersOnCopy");
+			};
+		};
+		"2470751679C6953911A78E44" = {
+			"isa" = "PBXResourcesBuildPhase";
+			"buildActionMask" = "2147483647";
+			"files" = ();
+			"runOnlyForDeploymentPostprocessing" = "0";
 		};
 		"CBE79372575C6BD5A9131E8F" = {
 			"isa" = "XCBuildConfiguration";
 			"name" = "Debug";
 			"buildSettings" = {
-				"CLANG_ENABLE_MODULES" = "YES";
 				"CLANG_ENABLE_OBJC_ARC" = "YES";
-				"DEBUG_INFORMATION_FORMAT" = "dwarf";
 				"SWIFT_ACTIVE_COMPILATION_CONDITIONS" = "DEBUG";
-			};
-		};
-		"2D49EBE4C1EF4247FC7BA12F" = {
-			"isa" = "XCBuildConfiguration";
-			"name" = "Release";
-			"buildSettings" = {
 				"CLANG_ENABLE_MODULES" = "YES";
-				"CLANG_ENABLE_OBJC_ARC" = "YES";
 				"DEBUG_INFORMATION_FORMAT" = "dwarf";
-				"SWIFT_ACTIVE_COMPILATION_CONDITIONS" = "";
 			};
 		};
-		"76F8DEC3DFE0BDB465198890" = {
+		"B20C1C2339931D6670695AD1" = {
+			"isa" = "PBXFrameworksBuildPhase";
+			"buildActionMask" = "2147483647";
+			"files" = ();
+			"runOnlyForDeploymentPostprocessing" = "0";
+		};
+		"3C5038DEF8428BFB385426CA" = {
+			"buildConfigurationList" = "EEAA49C34327584851B30548";
+			"productReference" = "6FC3270628E675C2C00392B6";
+			"productType" = "com.apple.product-type.app-extension";
+			"productName" = "TheoActivityMonitor";
+			"isa" = "PBXNativeTarget";
+			"buildPhases" = ("04B8BE406606946B2D691004", "8E524767C0C4BC230B3C7AA2", "2470751679C6953911A78E44");
+			"dependencies" = ();
+			"name" = "TheoActivityMonitor";
+			"buildRules" = ();
+		};
+		"EEAA49C34327584851B30548" = {
 			"isa" = "XCConfigurationList";
-			"buildConfigurations" = ("CBE79372575C6BD5A9131E8F", "2D49EBE4C1EF4247FC7BA12F");
-			"defaultConfigurationIsVisible" = 0;
+			"defaultConfigurationIsVisible" = "0";
 			"defaultConfigurationName" = "Release";
+			"buildConfigurations" = ("B26E841B5935421AD7FFE30D", "3A3B16E19A9F2C52CD9EA277");
 		};
-		"244210E48437B6556980A702" = {
-			"isa" = "PBXProject";
-			"attributes" = {
-				"LastUpgradeCheck" = "2660";
-				"TargetAttributes" = {
-					"E599CFC7A0E4A45A89E2C660" = {
-						"CreatedOnToolsVersion" = "26.6";
-						"DevelopmentTeam" = "YOUR_TEAM_ID";
-						"ProvisioningStyle" = "Automatic";
-						"SystemCapabilities" = {
-							"com.apple.FamilyControls" = {
-								"enabled" = 1;
-							};
-						};
-					};
-					"3C5038DEF8428BFB385426CA" = {
-						"CreatedOnToolsVersion" = "26.6";
-						"DevelopmentTeam" = "YOUR_TEAM_ID";
-						"ProvisioningStyle" = "Automatic";
-						"SystemCapabilities" = {
-							"com.apple.FamilyControls" = {
-								"enabled" = 1;
-							};
-						};
-					};
-					"91D183EDB128FF43C5F53E1D" = {
-						"CreatedOnToolsVersion" = "26.6";
-						"DevelopmentTeam" = "YOUR_TEAM_ID";
-						"ProvisioningStyle" = "Automatic";
-						"SystemCapabilities" = {
-							"com.apple.FamilyControls" = {
-								"enabled" = 1;
-							};
-						};
-					};
-					"DAC11E66B4D9D855E1CAC4BD" = {
-						"CreatedOnToolsVersion" = "26.6";
-						"DevelopmentTeam" = "YOUR_TEAM_ID";
-						"ProvisioningStyle" = "Automatic";
-						"SystemCapabilities" = {
-							"com.apple.FamilyControls" = {
-								"enabled" = 1;
-							};
-						};
-					};
-				};
-			};
-			"buildConfigurationList" = "76F8DEC3DFE0BDB465198890";
-			"compatibilityVersion" = "Xcode 14.0";
-			"developmentRegion" = "en";
-			"hasScannedForEncodings" = 0;
-			"knownRegions" = ("en", "Base");
-			"mainGroup" = "66474652908ED2E0775E04A9";
-			"productRefGroup" = "0A3E27B8CA818264D75C8D81";
-			"projectDirPath" = "";
-			"projectRoot" = "";
-			"targets" = ("E599CFC7A0E4A45A89E2C660", "3C5038DEF8428BFB385426CA", "91D183EDB128FF43C5F53E1D", "DAC11E66B4D9D855E1CAC4BD");
+		"321B2076F11A34F2F7735A6E" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "5E5BED79FE27C690A2E6FD41";
+		};
+		"9A4296AE14C374BBCB11D17A" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"path" = "Shared/SessionTiming.swift";
+			"sourceTree" = "<group>";
+		};
+		"075D7C9D7C626351AC3D38B4" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"path" = "Shared/SessionStorage.swift";
+			"sourceTree" = "<group>";
+		};
+		"CB4F0216DFBDCB5331B1B92F" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"path" = "Shared/FocusSessionEngine.swift";
+			"sourceTree" = "<group>";
+		};
+		"B00AB5CC8AC15ED663172077" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"path" = "FocusViewModel.swift";
+			"sourceTree" = "<group>";
+		};
+		"295035929823D2FFC954AAE7" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "9A4296AE14C374BBCB11D17A";
+		};
+		"F2B928754D615801CE2CFEA3" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "075D7C9D7C626351AC3D38B4";
+		};
+		"DA2D9DC2A227CE4466971CCF" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "CB4F0216DFBDCB5331B1B92F";
+		};
+		"518595A9BCCBCCA02941158E" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "B00AB5CC8AC15ED663172077";
+		};
+		"B47FCED4DA0E406FAC86F960" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "9A4296AE14C374BBCB11D17A";
+		};
+		"C84D9D4BAC255B1F25A601C4" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "075D7C9D7C626351AC3D38B4";
+		};
+		"71E6FC140F323915DEDCE1CC" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "CB4F0216DFBDCB5331B1B92F";
 		};
 	};
 	"rootObject" = "244210E48437B6556980A702";

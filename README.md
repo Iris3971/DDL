@@ -1,59 +1,89 @@
-# DDL Prototype 0.1 — signing checkpoint passed
+# DDL Prototype 0.1
 
-This is the smallest four-target project used to verify the paid team's development-signing and physical-device installation path. It is not the completed functional Prototype 0.1. The host app only displays an installation-check screen; it does not request Screen Time authorization, create sessions, or apply restrictions.
+Native SwiftUI focus-session prototype. **Prototype 0.1's core loop passed acceptance on the owner's personal iPhone on 2026-10-14.** Individual authorization, app selection, custom shield, shield-button behavior, persistence after host force-quit, Monitor expiry cleanup before reopening the host, unaffected unselected apps, and Debug Reset were verified through owner reports and device screenshots. This is one-device prototype acceptance, not a general reliability or distribution certification.
 
-## Targets
+See [交付说明](DELIVERY.md), [repeatable device checklist](TESTING.md), and [verification evidence](prototype-verification.json).
 
-| Target | Role in this checkpoint |
+## Git signing milestone
+
+- Commit: `a9f9a89` — **Prototype 0.1 signing + physical device installation verified**
+- Annotated tag: `prototype-0.1-signing-verified`
+- `signing-verification.json` is the evidence for that earlier installation-check build. It does not assert that the later functional session loop has passed.
+- Current functional-build evidence is in `prototype-verification.json`.
+- Core-loop milestone: annotated tag `prototype-0.1-core-loop-verified`, with commit message **Prototype 0.1 core loop verified on physical iPhone**. Milestones are local; no remote push.
+
+## Current verification status
+
+| Check | Status |
 | --- | --- |
-| DeadlineTheo | SwiftUI installation-check screen |
-| TheoActivityMonitor | Device Activity Monitor extension entry point |
-| TheoShieldConfiguration | Fixed local shield text, ready for later runtime testing |
-| TheoShieldAction | Responds with `.close`; never clears restrictions |
+| Signing milestone commit and tag | Saved locally; no remote push |
+| Four-target physical-device Debug build | Passed |
+| Family Controls in all profiles and effective signatures | Passed |
+| Common App Group in all profiles and effective signatures | Passed |
+| Team, explicit App IDs, and test-device coverage | Passed |
+| Strict signatures, including embedded extensions | Passed |
+| Minimum duration, aligned dates, expiry boundary, stale activity rejection, Codable timing round-trip | Passed |
+| Functional build installed and launched; process running | Passed |
+| Host App Group read/write at runtime | Owner confirmed the app displays App Group ready |
+| Monitor extension reads shared session | Passed: device screenshot shows a Monitor-written session event and two apps |
+| Individual authorization | Owner confirmed authorization successful |
+| Two-app selection and exact custom shield | Passed: owner report and device screenshots |
+| Natural expiry restoration | Passed by owner report, including access before reopening the force-quit host |
+| Force-quit persistence and Monitor expiry cleanup | Passed by owner report and IMG_9274.PNG: Monitor completion at 22:10:22 |
+| Shield button preserves restrictions | Passed: owner confirms following the final test steps without issues |
+| Unselected apps remain accessible | Passed by owner report during a separate single-app session |
+| Debug Reset recovery | Passed by owner report: separate 25-minute session shielded the selected app, Reset immediately restored access |
 
-`Shared/PrototypeConfiguration.swift` defines the dedicated `theoFocus` store name. The three extensions are embedded in the host app. Every target uses automatic development signing for the verified Developer Team and includes `com.apple.developer.family-controls = true`.
+First session evidence: `IMG_9268.PNG`–`IMG_9271.PNG` shows the exact shield, two selected apps, and shared-state access. `IMG_9272.PNG` did not establish that session's cleanup source. A subsequent 15-minute test followed the force-quit procedure: the owner confirms the selected app remained shielded after termination and became accessible at expiry before Theo reopened. `IMG_9274.PNG` then shows **Monitor: 到期自动清理完成**, timestamp **22:10:22**, no active session, and App Group ready. This resolves the Monitor acceptance requirement for the subsequent test without attributing the earlier cleanup. A separate 25-minute session verified immediate Reset and access to unselected apps. Image binaries are not copied into Git; `prototype-verification.json` separates screenshot observations from owner reports.
 
-Deployment target: iOS 16. No dependencies, server, AI, analytics, accounts, or network code. App Groups and session storage are deferred until the functional 0.1 step.
+The connected device reports iPhone 15 Pro Max / iOS 26.6. The Mac uses Xcode 26.6 (17F113). Developer Disk Image services are compatible and usable. Earlier component and developer-image network authorization failures disappeared after the user's network/component checks; the exact network cause was not established.
 
-## Verified on 2026-10-14
+## Four targets and shared code
 
-- Xcode 26.6 (17F113).
-- The connected iPhone 15 Pro Max reports iOS 26.6. Pairing succeeded and Developer Mode is enabled.
-- Developer Disk Image services report `contentIsCompatible: true` and `isUsable: true`.
-- All four targets compile and embed successfully.
-- The signed Debug build targeting the physical iPhone succeeded using automatic signing and device registration.
-- Each of the four embedded development provisioning profiles contains the Family Controls entitlement, the correct team and explicit App ID, and the connected test device. Their expiration dates are 2027-10-14 UTC.
-- Each of the four products' effective signed entitlements contains Family Controls, the correct team and App ID, and `get-task-allow` for development debugging.
-- Each product's signature passed strict verification; the host app and all nested signatures also passed deep verification.
-- The installation-check app was installed and launched successfully on the iPhone. Its running process was checked separately.
+- **DeadlineTheo:** explicit `.individual` authorization button, system `FamilyActivityPicker`, task/duration controls, session status, foreground reconciliation, Debug-only Reset/Clear.
+- **TheoActivityMonitor:** receives system interval callbacks, reads the shared session, and clears Theo's named store at expiry.
+- **TheoShieldConfiguration:** local fixed shield: “Deadline Theo”, “给我学。”, “You asked me to stop you.”
+- **TheoShieldAction:** returns `.close` for shield button actions; never unlocks apps.
+- **Shared:** `SessionTiming`, `SessionStorage`, `FocusSessionEngine`, and `PrototypeConfiguration`.
 
-Machine-readable verification: `signing-verification.json`. Build products are local and ignored under `.build/`.
+All four targets use Family Controls and `group.com.example.ddl.prototype01`. Only the host and monitor need session-file access. The shield appearance/action extensions use fixed local behavior.
 
-The displayed screen reads “Deadline Theo”, “Prototype 0.1 · Signing verification”, and “本次只验证安装与签名。尚未启用 App 限制。” Installation and launch do not prove Screen Time authorization, extension callbacks, or the focus-session loop work.
+One named `ManagedSettingsStore`, `theoFocus`, owns all prototype restrictions. The App Group JSON stores the user's opaque selection tokens, one session, and at most 30 local diagnostic events. A POSIX file lock serializes cross-process state and shield operations; writes are atomic and accessible after first device unlock. Each session has its own UUID-based activity name. Stale callbacks cannot end a different session during normal operation. Storage failures favor clearing Theo's restrictions and report a local error.
 
-No app was published, no distribution entitlement request was submitted, and no restrictions were applied.
+## Functional scope
 
-## Resolved environment issues and remaining risks
+- Default: **IELTS Listening · 45 min**. Duration choices: 15, 25, 45, 60 minutes.
+- Selection must contain 1–3 specific app tokens, with no whole-category or website selection.
+- Only one active/preparing session. Selection is frozen while it runs.
+- Start persists a preparing record, registers a one-shot schedule, activates the record, and requests shields immediately. Errors roll back the start.
+- Monitor expiry and foreground reconciliation remove only Theo's own store settings. An interrupted preparing state is cleared when the app returns to the foreground.
+- Debug Reset clears the dedicated store even if shared-state reading fails, then attempts to reset the record and stop Theo's activities. It is excluded from Release builds.
+- Revoked authorization clears saved selection; invalidated tokens must be selected again after authorization is restored.
 
-The initial Simulator download failed with MobileAsset catalog authorization error 41. Developer Disk Image mounting independently failed with CoreDevice 12040 and underlying HTTP authorization error 3501. After the user's network test and component setup, the physical-device destination and developer image became usable. A common network-path cause was suspected, but the specific service or VPN behavior was not established. Do not infer that a Simulator download is always needed to fix developer image personalization.
+## Device test
 
-Development provisioning is now verified. TestFlight and App Store distribution still require separate Family Controls distribution authorization covering the host and relevant extensions. Signing may need regeneration when certificates, device registrations, or capabilities change. Keep generated profiles and private signing keys out of source control.
+Follow [TESTING.md](TESTING.md). Stop at system permission prompts and let the device owner act. Never mark the full loop verified merely from compilation, signatures, or a successful installation.
 
-## Next minimal implementation
+To rerun the pure timing checks locally:
 
-1. Configure a common App Group for session metadata and selected tokens.
-2. Add individual Screen Time authorization and `FamilyActivityPicker`, enforcing a selection of 1–3 specific apps.
-3. Implement one active session with a 15-minute minimum and default “IELTS Listening · 45 min”.
-4. Register a one-shot DeviceActivity schedule and apply shields immediately using the dedicated named store. Roll back safely if registration fails.
-5. Implement guarded, idempotent expiry cleanup in the monitor extension, foreground reconciliation, and development-only Reset/Clear. Ensure stale callbacks cannot clear a newer session.
-6. Validate the fixed local shield, no-unlock action, background/force-quit behavior, and natural expiry on the physical iPhone.
+```sh
+swiftc -module-cache-path .build/check-cache Shared/SessionTiming.swift Tests/SessionTimingChecks.swift -o .build/session-timing-check
+.build/session-timing-check
+```
 
-This remains Prototype 0.1. No 0.2 features are included.
+## Limits
+
+DeviceActivity callbacks depend on device use; this is not a precise-to-the-second background alarm. For expiry acceptance, use the phone after the scheduled end and verify that the selected app becomes accessible without reopening Theo. A foreground cleanup event alone does not prove the Monitor cleaned up while the host was terminated.
+
+The user retains the ability to revoke authorization. Other Screen Time or device-management restrictions may still apply after Theo clears its own store. TestFlight and App Store distribution require separate Family Controls distribution approval covering the host and relevant extensions.
+
+No AI, chat, accounts, cloud, analytics, task-completion detection, complex override, or 0.2 features are implemented. No app was published and no distribution entitlement request was submitted.
 
 ## Apple references
 
 - [Configuring Family Controls](https://developer.apple.com/documentation/xcode/configuring-family-controls)
-- [Requesting the Family Controls entitlement](https://developer.apple.com/documentation/familycontrols/requesting-the-family-controls-entitlement)
-- [Enabling Developer Mode](https://developer.apple.com/documentation/xcode/enabling-developer-mode-on-a-device)
+- [Configuring app groups](https://developer.apple.com/documentation/xcode/configuring-app-groups)
+- [FamilyActivitySelection and revoked tokens](https://developer.apple.com/documentation/familycontrols/familyactivityselection)
+- [DeviceActivity interval end semantics](https://developer.apple.com/documentation/deviceactivity/deviceactivitymonitor/intervaldidend(for:))
 
-Extension point identifiers and principal-class configuration were checked against the templates bundled with this installed Xcode.
+Extension identifiers and principal classes match this installed Xcode's official templates.
