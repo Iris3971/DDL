@@ -5,6 +5,16 @@
 	"objectVersion" = "56";
 	"archiveVersion" = "1";
 	"objects" = {
+        "97B925FCD3294560AE46B361" = {
+            "isa" = "PBXFileReference";
+            "lastKnownFileType" = "folder.assetcatalog";
+            "path" = "Assets.xcassets";
+            "sourceTree" = "<group>";
+        };
+        "CB898389A1484C6CA073EBA7" = {
+            "isa" = "PBXBuildFile";
+            "fileRef" = "97B925FCD3294560AE46B361";
+        };
 		"A955D73283B9643D838EC6F7" = {
 			"isa" = "PBXFrameworksBuildPhase";
 			"buildActionMask" = "2147483647";
@@ -14,7 +24,7 @@
 		"F55BF6EB804AE63B9C38BFBD" = {
 			"isa" = "PBXResourcesBuildPhase";
 			"buildActionMask" = "2147483647";
-			"files" = ();
+			"files" = ("CB898389A1484C6CA073EBA7");
 			"runOnlyForDeploymentPostprocessing" = "0";
 		};
 		"E599CFC7A0E4A45A89E2C660" = {
@@ -81,6 +91,7 @@
 				"SUPPORTED_PLATFORMS" = "iphoneos iphonesimulator";
 				"CURRENT_PROJECT_VERSION" = "1";
 				"PRODUCT_BUNDLE_IDENTIFIER" = "com.example.ddl.prototype01";
+				"ASSETCATALOG_COMPILER_APPICON_NAME" = "AppIcon";
 				"ENABLE_USER_SCRIPT_SANDBOXING" = "YES";
 				"INFOPLIST_KEY_CFBundleDisplayName" = "Deadline Theo";
 				"INFOPLIST_KEY_UILaunchScreen_Generation" = "YES";
@@ -195,7 +206,7 @@
 		"E29EA9720F1F90E5D3182AF9" = {
 			"path" = "DeadlineTheo";
 			"isa" = "PBXGroup";
-			"children" = ("5E5BED79FE27C690A2E6FD41", "643DEC775D5481C208EAF475", "B00AB5CC8AC15ED663172077");
+			"children" = ("97B925FCD3294560AE46B361", "5E5BED79FE27C690A2E6FD41", "643DEC775D5481C208EAF475", "B00AB5CC8AC15ED663172077");
 			"sourceTree" = "<group>";
 		};
 		"F2389253433CBEC1BC790F1C" = {
@@ -229,6 +240,7 @@
 				"SUPPORTED_PLATFORMS" = "iphoneos iphonesimulator";
 				"CURRENT_PROJECT_VERSION" = "1";
 				"PRODUCT_BUNDLE_IDENTIFIER" = "com.example.ddl.prototype01";
+				"ASSETCATALOG_COMPILER_APPICON_NAME" = "AppIcon";
 				"ENABLE_USER_SCRIPT_SANDBOXING" = "YES";
 				"INFOPLIST_KEY_CFBundleDisplayName" = "Deadline Theo";
 				"INFOPLIST_KEY_UILaunchScreen_Generation" = "YES";

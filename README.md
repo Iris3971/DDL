@@ -50,6 +50,10 @@ All four targets use Family Controls and `group.com.example.ddl.prototype01`. On
 
 One named `ManagedSettingsStore`, `theoFocus`, owns all prototype restrictions. The App Group JSON stores the user's opaque selection tokens, one session, and at most 30 local diagnostic events. A POSIX file lock serializes cross-process state and shield operations; writes are atomic and accessible after first device unlock. Each session has its own UUID-based activity name. Stale callbacks cannot end a different session during normal operation. Storage failures favor clearing Theo's restrictions and report a local error.
 
+## App icon
+
+The host uses the supplied blue handwritten DDL design, adapted to full-bleed square artwork without mockup corners or outer shadow. The opaque 1024×1024 PNG is in `DeadlineTheo/Assets.xcassets/AppIcon.appiconset`; see `ICON.md` for the image-edit prompt. The shield extension keeps its existing appearance.
+
 ## Functional scope
 
 - Default: **IELTS Listening · 45 min**. Duration choices: 15, 25, 45, 60 minutes.
