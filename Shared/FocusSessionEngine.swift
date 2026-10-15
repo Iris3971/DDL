@@ -105,34 +105,62 @@ enum FocusSessionEngine {
         }
     }
 
-    static func reconcile(authorized: Bool) throws {
+    static func reconcile(authorization: SessionAuthorization, source: String) throws -> SharedState {
         var stop: DeviceActivityName?
-        try SessionStorage.access(write: true) { state in
-            if !authorized {
-                stop = state.session.map { DeviceActivityName($0.timing.activityName) }
-                store.clearAllSettings()
-                state.session = nil
-                state.selection = FamilyActivitySelection()
-            } else if let record = state.session {
-                if Date() >= record.timing.endsAt || record.timing.phase == .preparing {
-                    stop = DeviceActivityName(record.timing.activityName)
+        let restored: SharedState
+        var diagnosticContext = "Reconcile [\(source)]: authorization=\(authorization.rawValue); persistedSessionFound=unknown; persistedSession=unreadable; endInFuture=unknown; decision=keep; reason=storageReadFailure"
+        do {
+            // Read persisted state and decide under the same lock, before restoring the UI.
+            restored = try SessionStorage.access(write: true) { state in
+                let now = Date()
+                let timing = state.session?.timing
+                let decision = authorization.decision(for: timing, now: now)
+                let action: String
+                let reason: String
+                switch decision {
+                case .restore: action = "restore"; reason = "activeFutureSession"
+                case .keep: action = "keep"; reason = "authorizationUnconfirmed"
+                case .cleanup(let cleanup): action = "cleanup"; reason = cleanup.rawValue
+                }
+                let sessionID = timing.map { String($0.id.uuidString.prefix(8)) } ?? "none"
+                let end = timing.map { $0.endsAt.ISO8601Format() } ?? "none"
+                let future = timing.map { String($0.endsAt > now) } ?? "n/a"
+                let phase = timing?.phase.rawValue ?? "none"
+                let diagnostic = "Reconcile [\(source)]: authorization=\(authorization.rawValue); persistedSessionFound=\(timing != nil); persistedSession=\(sessionID); endsAt=\(end); endInFuture=\(future); phase=\(phase); decision=\(action); reason=\(reason)"
+                diagnosticContext = diagnostic
+                state.record(diagnostic, source: "App")
+
+                switch decision {
+                case .restore:
+                    if let record = state.session {
+                        store.shield.applications = record.selection.applicationTokens
+                    }
+                case .keep:
+                    // Do not change the session, selection, shield, or schedule.
+                    break
+                case .cleanup(let cleanup):
+                    stop = timing.map { DeviceActivityName($0.activityName) }
                     store.clearAllSettings()
                     state.session = nil
-                    state.record("前台 reconciliation 已清理到期或中断的 session", source: "App")
-                } else {
-                    store.shield.applications = record.selection.applicationTokens
+                    if cleanup == .authorizationDenied { state.selection = FamilyActivitySelection() }
                 }
-            } else {
-                store.clearAllSettings()
+                return state
             }
+        } catch {
+            logger.error("\(diagnosticContext, privacy: .public); outcome=failed; error=\(error.localizedDescription, privacy: .public)")
+            throw error
         }
+        logger.info("\(diagnosticContext, privacy: .public); outcome=completed")
         if let stop { DeviceActivityCenter().stopMonitoring([stop]) }
-        // Remove orphan registrations without touching another feature's activities.
-        let current = try SessionStorage.read().session?.timing.activityName
-        let orphans = DeviceActivityCenter().activities.filter {
-            $0.rawValue.hasPrefix(SessionTiming.activityPrefix) && $0.rawValue != current
+        // Unconfirmed authorization must not trigger orphan-schedule cleanup either.
+        if authorization.isApproved || authorization == .denied {
+            let current = try SessionStorage.read().session?.timing.activityName
+            let orphans = DeviceActivityCenter().activities.filter {
+                $0.rawValue.hasPrefix(SessionTiming.activityPrefix) && $0.rawValue != current
+            }
+            if !orphans.isEmpty { DeviceActivityCenter().stopMonitoring(orphans) }
         }
-        if !orphans.isEmpty { DeviceActivityCenter().stopMonitoring(orphans) }
+        return restored
     }
 
     #if DEBUG

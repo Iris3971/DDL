@@ -32,11 +32,23 @@ final class FocusViewModel: ObservableObject {
         }
     }
 
-    func refresh() {
-        authorizationStatus = authorization.authorizationStatus
+    private var reconciliationAuthorization: SessionAuthorization {
+        if authorizationStatus == .approved { return .approved }
+        if #available(iOS 26.4, *), authorizationStatus == .approvedWithDataAccess {
+            return .approvedWithDataAccess
+        }
+        switch authorizationStatus {
+        case .denied: return .denied
+        case .notDetermined: return .notDetermined
+        default: return .unknown
+        }
+    }
+
+    func refresh(updatedAuthorization: AuthorizationStatus? = nil, source: String = "refresh") {
+        // A publisher value is authoritative for this callback: @Published emits in willSet.
+        authorizationStatus = updatedAuthorization ?? authorization.authorizationStatus
         do {
-            try FocusSessionEngine.reconcile(authorized: authorized)
-            state = try SessionStorage.read()
+            state = try FocusSessionEngine.reconcile(authorization: reconciliationAuthorization, source: source)
             sharedReady = true
         } catch {
             sharedReady = false
@@ -50,7 +62,7 @@ final class FocusViewModel: ObservableObject {
         defer { busy = false }
         do { try await authorization.requestAuthorization(for: .individual) }
         catch { errorMessage = error.localizedDescription }
-        refresh()
+        refresh(source: "authorization completion")
     }
 
     func preparePicker() {
@@ -76,11 +88,11 @@ final class FocusViewModel: ObservableObject {
         do {
             try FocusSessionEngine.start(task: task, minutes: minutes)
             state = try SessionStorage.read()
-        } catch { errorMessage = error.localizedDescription; refresh() }
+        } catch { errorMessage = error.localizedDescription; refresh(source: "start failure") }
     }
 
     func tick() {
-        if let record = state.session, Date() >= record.timing.endsAt { refresh() }
+        if let record = state.session, Date() >= record.timing.endsAt { refresh(source: "foreground expiry") }
     }
 
     #if DEBUG

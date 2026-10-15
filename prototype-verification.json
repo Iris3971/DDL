@@ -112,5 +112,29 @@
     "monitor_event_time": "22:10:22 Asia/Shanghai",
     "active_session_visible": false,
     "app_group_ready": true
+  },
+  "relaunch_regression_2026_10_15": {
+    "owner_reproduced_before_fix": true,
+    "reproductions_reported": 2,
+    "minimal_fix_implemented": true,
+    "decision_checks_passed": true,
+    "signed_debug_build_passed": true,
+    "fix_installed_on_device": true,
+    "physical_device_regression_passed": true,
+    "status": "Owner reports pre-expiry force-quit/reopen regression passed on the installed fix; extended expiry and Reset rechecks are not yet reported for this build",
+    "scope": "Authorization snapshot handling, persisted session restoration, emitted-value subscription, diagnostic events only",
+    "future_work": "Preparing-state redesign remains out of scope",
+    "fix_installation_date": "2026-10-15",
+    "installation_method": "Official devicectl development-signed app installation",
+    "relaunch_reproduction_passed": true,
+    "owner_acceptance_evidence": {
+      "date": "2026-10-15",
+      "basis": "Owner report: 测试成功！, in response to the prescribed 15-minute session → force-quit → pre-expiry reopen test",
+      "scope": "Original active session and end time restored; selected-app shield retained after reopening",
+      "monitor_expiry_recheck_confirmed_for_fix": false,
+      "developer_reset_recheck_confirmed_for_fix": false,
+      "scope_note": "Unconfirmed rechecks are pending, not failures. Earlier acceptance evidence is preserved."
+    },
+    "milestone_tag": "prototype-0.1-relaunch-verified"
   }
 }
