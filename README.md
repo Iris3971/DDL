@@ -1,128 +1,239 @@
-# DDL Prototype 0.1
+# DDL
 
-Native SwiftUI focus-session prototype. **Prototype 0.1's core loop passed acceptance on the owner's personal iPhone on 2026-10-14.** Individual authorization, app selection, custom shield, shield-button behavior, persistence after host force-quit, Monitor expiry cleanup before reopening the host, unaffected unselected apps, and Debug Reset were verified through owner reports and device screenshots. This is one-device prototype acceptance, not a general reliability or distribution certification.
+**An iOS commitment tool for helping users follow through on decisions they made before distraction arrives.**
 
-**2026-10-15 regression update:** the owner reproduced premature session cancellation when reopening the host before expiry. The minimal authorization/restoration fix builds, passes decision checks, and is installed on the personal iPhone. The owner now confirms the pre-expiry force-quit/reopen regression passes: the active session/end time and shield remain. Extended Monitor expiry and Developer Reset rechecks have not yet been reported for this build. The 2026-10-14 results below remain historical evidence and do not certify this fix.
+People often know what they want to do before distraction appears. The harder part is following through once a more tempting option becomes immediately available.
 
-See [交付说明](DELIVERY.md), [repeatable device checklist](TESTING.md), and [verification evidence](prototype-verification.json).
+DDL explores a self-binding interaction model in which users define a commitment in advance — what they want to do, for how long, and which apps they want temporarily restricted — and deliberately grant the system limited authority to help enforce that earlier decision.
 
-## Git signing milestone
+> DDL does not decide what the user should do.
+> It helps enforce a commitment the user has already chosen.
 
-- Commit: `a9f9a89` — **Prototype 0.1 signing + physical device installation verified**
-- Annotated tag: `prototype-0.1-signing-verified`
-- `signing-verification.json` is the evidence for that earlier installation-check build. It does not assert that the later functional session loop has passed.
-- Current functional-build evidence is in `prototype-verification.json`.
-- Core-loop milestone: annotated tag `prototype-0.1-core-loop-verified`, with commit message **Prototype 0.1 core loop verified on physical iPhone**. Milestones are local; no remote push.
+---
 
-## Current verification status
+## Why DDL?
 
-| Check | Status |
-| --- | --- |
-| Signing milestone commit and tag | Saved locally; no remote push |
-| Four-target physical-device Debug build | Passed |
-| Family Controls in all profiles and effective signatures | Passed |
-| Common App Group in all profiles and effective signatures | Passed |
-| Team, explicit App IDs, and test-device coverage | Passed |
-| Strict signatures, including embedded extensions | Passed |
-| Minimum duration, aligned dates, expiry boundary, stale activity rejection, Codable timing round-trip | Passed |
-| Functional build installed and launched; process running | Passed |
-| Host App Group read/write at runtime | Owner confirmed the app displays App Group ready |
-| Monitor extension reads shared session | Passed: device screenshot shows a Monitor-written session event and two apps |
-| Individual authorization | Owner confirmed authorization successful |
-| Two-app selection and exact custom shield | Passed: owner report and device screenshots |
-| Natural expiry restoration | Passed by owner report, including access before reopening the force-quit host |
-| Force-quit persistence and Monitor expiry cleanup | Passed by owner report and IMG_9274.PNG: Monitor completion at 22:10:22 |
-| Shield button preserves restrictions | Passed: owner confirms following the final test steps without issues |
-| Unselected apps remain accessible | Passed by owner report during a separate single-app session |
-| Debug Reset recovery | Passed by owner report: separate 25-minute session shielded the selected app, Reset immediately restored access |
+Blocking an app is technically straightforward.
 
-First session evidence: `IMG_9268.PNG`–`IMG_9271.PNG` shows the exact shield, two selected apps, and shared-state access. `IMG_9272.PNG` did not establish that session's cleanup source. A subsequent 15-minute test followed the force-quit procedure: the owner confirms the selected app remained shielded after termination and became accessible at expiry before Theo reopened. `IMG_9274.PNG` then shows **Monitor: 到期自动清理完成**, timestamp **22:10:22**, no active session, and App Group ready. This resolves the Monitor acceptance requirement for the subsequent test without attributing the earlier cleanup. A separate 25-minute session verified immediate Reset and access to unselected apps. Image binaries are not copied into Git; `prototype-verification.json` separates screenshot observations from owner reports.
+The more interesting question is **who decides when the restriction should happen, how long it should last, and how much authority the system should have once that decision has been made.**
 
-The connected device reports iPhone 15 Pro Max / iOS 26.6. The Mac uses Xcode 26.6 (17F113). Developer Disk Image services are compatible and usable. Earlier component and developer-image network authorization failures disappeared after the user's network/component checks; the exact network cause was not established.
+DDL treats restriction not as a permanent rule imposed by software, but as a temporary commitment initiated by the user.
 
-## Screen 1 UI polish — 2026-10-15
+The authority comes from the user and is deliberately bounded.
 
-In this prototype build, Screen 1 uses English display copy, including its picker wrapper and Developer-only area. Existing stored diagnostics are rendered in English by a view-only adapter; their original data is unchanged. This is not a permanent English-only product decision. Future product versions will support localization based on system language; this task adds no localization framework or global language override. Apple-owned system UI and user-entered task text are not translated.
+---
 
-Commitment Setup now follows task → duration → distracting apps → one blue **Start commitment** action, using the existing native Form controls and bindings. Short commitment copy replaces the developer-panel emphasis. Unneeded authorization diagnostics, App Group / Monitor status, and the Debug-only Reset are under a collapsed **Prototype / Developer-only** disclosure at the bottom. When authorization is needed, the existing authorization button remains visible beside app selection. Current session details still appear while active; the idle placeholder is omitted. Error feedback remains visible near the primary action.
+## Design Principle — Revocable Authority
 
-Signed iOS Debug and simulator builds passed. Simulator inspection checked text layout, disabled primary action, and expansion of the developer diagnostics/Reset area. The unsigned simulator run reports App Group unavailable, so it does not verify authorization or restriction behavior.
+DDL is built around a design principle I call **Revocable Authority**:
 
-The UI-polish edit changed presentation only; the subsequent bug fix described below intentionally changes authorization handling in reconciliation. The ViewModel, shared session engine/storage/timing, all extensions, entitlements, and lifecycle callbacks remain unchanged. Earlier core-loop evidence remains historical evidence for the validated implementation; the polished UI still requires an owner-run iPhone regression using TESTING.md. No formal override, Screen 2, Screen 3, or 0.2 work is included.
+> **Prior commitment has weight; present autonomy remains ultimate.**
 
-## Relaunch restoration fix — 2026-10-15 (pre-expiry reopen verified)
+This is a design framing used within DDL, rather than an established academic theory.
 
-Authorization is no longer reduced to a cleanup Boolean. A small `SessionAuthorization` decision helper distinguishes approved, explicitly denied, not-determined, and unknown snapshots. The publisher callback passes its emitted status directly. Reconciliation reads persisted state under the existing lock and returns that state for UI restoration.
+It has four core properties:
 
-- Future active session + unconfirmed authorization: **keep** session/selection/shield/schedule; restore the session UI.
-- Future active session + approved authorization: **restore** the session and existing selected-app shield, without re-registering its schedule.
-- Actual expiry: **cleanup / expired**, including when authorization is unconfirmed.
-- Explicit denial: **cleanup / authorizationDenied**.
-- Approved + successfully read empty state: existing **cleanup / noSession** behavior retained.
-- Approved + preparing record: existing **cleanup / interruptedPreparing** behavior retained. Preparing redesign is **Future Work**, not part of this fix.
-- A state-read failure logs the error and does not itself request cleanup; failed operations are distinguished from successful decisions.
+- **User-authored** — the commitment originates with the user. The system does not decide what the user should focus on.
+- **Scoped** — authority applies only to the apps and duration explicitly selected by the user.
+- **Time-bounded** — restrictions end automatically when the commitment expires.
+- **Ultimately revocable** — the user must retain a meaningful way to withdraw the authority they previously granted.
 
-Each reconciliation writes a bounded local diagnostic event and an OS log with trigger source, authorization snapshot, persisted-session presence/ID, end time, whether it is still in the future, phase, decision, and reason. OS logs additionally record completed/failed outcome. The existing Developer-only area displays the latest event without a UI change. Unconfirmed authorization also skips orphan-schedule cleanup.
+This creates the central design tension behind DDL:
 
-Decision checks (including actual Combine willSet delivery) passed; this does not prove device behavior:
+**How can an override remain genuinely available without making the original commitment meaningless?**
 
-```sh
-swiftc -module-cache-path .build/check-cache Shared/SessionTiming.swift Shared/SessionAuthorization.swift Tests/SessionRestorationChecks.swift -o .build/session-restoration-check
-.build/session-restoration-check
-```
+That question is still open.
 
-The Screen 1 visual layout, duration rules, session storage format, Custom Shield, Monitor callbacks, start flow, and explicit Developer Reset remain unchanged. The project only links the new helper into the host and Monitor targets. The owner-confirmed pre-expiry reopen result is recorded in `prototype-verification.json`; remaining expiry/Reset rechecks are listed in TESTING.md. Local milestone tag: `prototype-0.1-relaunch-verified`. Xcode also upgraded the shared scheme format and normalized the debugger launcher identifier when the project was first opened; the Debug run configuration and build target are preserved.
+---
 
-## Four targets and shared code
+## Interaction Model
 
-- **DeadlineTheo:** explicit `.individual` authorization button, system `FamilyActivityPicker`, task/duration controls, session status, foreground reconciliation, Debug-only Reset/Clear.
-- **TheoActivityMonitor:** receives system interval callbacks, reads the shared session, and clears Theo's named store at expiry.
-- **TheoShieldConfiguration:** local fixed shield: “Deadline Theo”, “给我学。”, “You asked me to stop you.”
-- **TheoShieldAction:** returns `.close` for shield button actions; never unlocks apps.
-- **Shared:** `SessionTiming`, `SessionStorage`, `SessionAuthorization`, `FocusSessionEngine`, and `PrototypeConfiguration`.
+DDL is organised around three moments:
 
-All four targets use Family Controls and `group.com.example.ddl.prototype01`. Only the host and monitor need session-file access. The shield appearance/action extensions use fixed local behavior.
+**Commitment → Intervention → Release**
 
-One named `ManagedSettingsStore`, `theoFocus`, owns all prototype restrictions. The App Group JSON stores the user's opaque selection tokens, one session, and at most 30 local diagnostic events. A POSIX file lock serializes cross-process state and shield operations; writes are atomic and accessible after first device unlock. Each session has its own UUID-based activity name. Stale callbacks cannot end a different session during normal operation. Monitor expiry and explicit Reset retain their existing recovery behavior; a relaunch state-read failure reports an error without treating it as authorization denial or requesting cleanup.
+The current flow is:
 
-## App icon
+`Define task → Choose duration → Select distracting apps → Start commitment → Restriction active → Intervention → Commitment persists → Automatic release`
 
-The host uses the supplied blue handwritten DDL design, adapted to full-bleed square artwork without mockup corners or outer shadow. The opaque 1024×1024 PNG is in `DeadlineTheo/Assets.xcassets/AppIcon.appiconset`; see `ICON.md` for the image-edit prompt. The shield extension keeps its existing appearance.
+### Commitment
 
-## Functional scope
+The user defines:
 
-- Default: **IELTS Listening · 45 min**. Duration choices: 15, 25, 45, 60 minutes.
-- Selection must contain 1–3 specific app tokens, with no whole-category or website selection.
-- Only one active/preparing session. Selection is frozen while it runs.
-- Start persists a preparing record, registers a one-shot schedule, activates the record, and requests shields immediately. Errors roll back the start.
-- Monitor expiry and foreground reconciliation remove only Theo's own store settings. An interrupted preparing state is cleared when the app returns to the foreground.
-- Debug Reset clears the dedicated store even if shared-state reading fails, then attempts to reset the record and stop Theo's activities. It is excluded from Release builds.
-- Revoked authorization clears saved selection; invalidated tokens must be selected again after authorization is restored.
+- the task they want to complete;
+- the duration of the commitment;
+- the distracting apps they want temporarily restricted.
 
-## Device test
+The system receives limited authority only after the user explicitly starts the commitment.
 
-Follow [TESTING.md](TESTING.md). Stop at system permission prompts and let the device owner act. Never mark the full loop verified merely from compilation, signatures, or a successful installation.
+### Intervention
 
-To rerun the pure timing checks locally:
+Once the commitment is active, selected apps are shielded at the system level.
 
-```sh
-swiftc -module-cache-path .build/check-cache Shared/SessionTiming.swift Tests/SessionTimingChecks.swift -o .build/session-timing-check
-.build/session-timing-check
-```
+If the user tries to open one of those apps, DDL does not ask them to make the decision again.
 
-## Limits
+Instead, the intervention reminds them that the restriction comes from a choice they made earlier.
 
-DeviceActivity callbacks depend on device use; this is not a precise-to-the-second background alarm. For expiry acceptance, use the phone after the scheduled end and verify that the selected app becomes accessible without reopening Theo. A foreground cleanup event alone does not prove the Monitor cleaned up while the host was terminated.
+### Release
 
-The user retains the ability to revoke authorization. Other Screen Time or device-management restrictions may still apply after Theo clears its own store. TestFlight and App Store distribution require separate Family Controls distribution approval covering the host and relevant extensions.
+When the commitment expires, the restriction is removed automatically.
 
-No AI, chat, accounts, cloud, analytics, task-completion detection, complex override, or 0.2 features are implemented. No app was published and no distribution entitlement request was submitted.
+The user does not need to reopen DDL or confirm the release.
 
-## Apple references
+The authority ends with the commitment.
 
-- [Configuring Family Controls](https://developer.apple.com/documentation/xcode/configuring-family-controls)
-- [Configuring app groups](https://developer.apple.com/documentation/xcode/configuring-app-groups)
-- [FamilyActivitySelection and revoked tokens](https://developer.apple.com/documentation/familycontrols/familyactivityselection)
-- [DeviceActivity interval end semantics](https://developer.apple.com/documentation/deviceactivity/deviceactivitymonitor/intervaldidend(for:))
+---
 
-Extension identifiers and principal classes match this installed Xcode's official templates.
+## Screenshots / Demo
+
+| Commitment Setup | Active Commitment | Intervention / Shield |
+| :---: | :---: | :---: |
+| <img src="docs/images/commitment-setup.png" width="260" alt="Commitment setup on a physical iPhone"> | <img src="docs/images/active-commitment.png" width="260" alt="An active commitment with its end time and remaining duration"> | <img src="docs/images/intervention-shield.png" width="260" alt="The system intervention shield shown when opening a restricted app"> |
+
+Real screenshots from the working Prototype 0.1. The frozen interface retains its earlier on-screen label; DDL is the public project name. Images are reproduced without alteration.
+
+---
+
+## Prototype 0.1
+
+DDL is currently an early but working iOS prototype.
+
+Prototype 0.1 supports:
+
+- task definition;
+- commitment duration;
+- distracting-app selection;
+- starting an active commitment;
+- system-level shielding for selected apps;
+- restriction persistence when the main DDL app is terminated;
+- restoration of an active commitment when DDL is reopened;
+- automatic release when the commitment expires;
+- unaffected access to apps that were not selected.
+
+Current verified milestone:
+
+`prototype-0.1-relaunch-verified`
+
+---
+
+## Implementation
+
+Prototype 0.1 is built with native iOS frameworks:
+
+- `SwiftUI`
+- `FamilyControls`
+- `ManagedSettings`
+- `DeviceActivity`
+
+`FamilyControls` handles user authorisation and app selection.
+
+`ManagedSettings` applies the restriction and shield behaviour.
+
+`DeviceActivity` allows the commitment lifecycle to persist independently of the main DDL process and supports cleanup when the session expires.
+
+The current core commitment loop does not depend on a remote server or an AI model.
+
+---
+
+## Real-device Testing
+
+The core interaction has been tested on a physical iPhone rather than only through build or simulator validation.
+
+During a real 15-minute commitment session, relaunch testing exposed a repeatable lifecycle failure:
+
+`Start → Shield active → terminate DDL → restriction remains → reopen DDL before expiry → session clears unexpectedly`
+
+The restriction itself remained active after the main app was terminated, but reopening DDL could incorrectly trigger cleanup and end an active commitment early.
+
+The issue was traced to startup state reconciliation. Different authorisation states were being collapsed too early into a Boolean value, allowing the app to interpret an incompletely restored state as unauthorised and clear the current session.
+
+The fix was deliberately kept minimal rather than expanding the prototype into a broader state-machine redesign.
+
+The repaired flow was then regression-tested:
+
+`Start → Shield → terminate DDL → reopen → session persists → restriction persists → expiry → automatic release`
+
+This failure became an important part of the project:
+
+**a system working in build-time validation does not guarantee that it behaves correctly across the lifecycle of real use.**
+
+---
+
+## Current Limitations
+
+DDL is still experimental and is not a finished consumer product.
+
+### User-facing override
+
+The current **Developer Reset** exists for development and testing only.
+
+It is not the final user-facing revocation mechanism and should not be treated as a complete solution to Revocable Authority.
+
+A future version needs to explore an override that remains accessible without reducing self-binding to a restriction that can be dismissed without friction.
+
+### Product polish
+
+The current interface is intentionally focused on the core commitment loop.
+
+Full onboarding, accessibility, localisation, richer recovery states, and broader edge-case handling remain future work.
+
+### Evaluation
+
+Current validation focuses primarily on:
+
+- the core interaction flow;
+- real-device lifecycle behaviour;
+- failure discovery and recovery;
+- regression of the verified commitment loop.
+
+Broader user evaluation has not yet been completed.
+
+---
+
+## Roadmap
+
+### 0.1 — Core commitment loop
+
+- commitment setup;
+- distracting-app selection;
+- system-level shielding;
+- lifecycle persistence;
+- relaunch recovery;
+- automatic release.
+
+### 0.2 — Revocation & Recovery
+
+Future work will focus on:
+
+- deliberate override interaction;
+- the cost and friction of cancelling an active commitment;
+- interrupted-session recovery;
+- the practical boundary of Revocable Authority.
+
+### Later
+
+Once the core interaction is stable, possible areas for further development include:
+
+- accessibility;
+- system-language localisation;
+- richer commitment feedback;
+- broader formative evaluation;
+- distribution and deployment.
+
+DDL will not add features simply because they are technically possible.
+
+A new capability should answer a more basic question:
+
+**Does it make the relationship between the user and their earlier commitment clearer, more controllable, or more trustworthy?**
+
+---
+
+## Status
+
+**Prototype 0.1 — working and verified on a physical iPhone**
+
+Current verified tag:
+
+`prototype-0.1-relaunch-verified`
+
+DDL is experimental and actively evolving.

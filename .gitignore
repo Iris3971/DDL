@@ -6,3 +6,21 @@ xcuserdata/
 *.p12
 *.p8
 *.xcresult
+
+# Local build products and signing material
+DerivedData/
+.build-publication/
+*.xcarchive/
+*.ipa
+*.dSYM/
+*.dSYM.zip
+*.cer
+*.cert
+*.pem
+*.key
+*.pfx
+*.provisionprofile
+.env
+.env.*
+!.env.example
+*.xcconfig.local
